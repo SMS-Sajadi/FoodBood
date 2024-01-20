@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'account_login_url' %}">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" value="Click ME!">
+    </form>
+</body>
+</html>
