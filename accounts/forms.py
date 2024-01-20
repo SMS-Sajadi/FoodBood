@@ -21,5 +21,4 @@ class UserPasswordRestEmailForm(forms.Form):
 
 
 class UserPasswordResetPassForm(forms.Form):
-    # email = forms.EmailField(max_length=256, attr={'readonly'})
     password = forms.CharField(max_length=256, widget=forms.PasswordInput)
