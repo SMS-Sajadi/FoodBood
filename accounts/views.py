@@ -8,6 +8,7 @@ from .email_verification import activation_email
 from .forget_password import password_forget_email
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class UserRegister(View):
@@ -108,14 +109,11 @@ class UserPasswordReset(View):
         return render(request=request, template_name="Forget_password.html", context={"form": form})
 
 
-class UserInfoUpdate(View):
+class UserInfoUpdate(LoginRequiredMixin, View):
     """
     This is the basic class for updating user information on setting page.
     """
     def post(self, request):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         form = UserInfoUpdateForm(request.POST, request.FILES)
         if form.is_valid():
             cleaned_data = form.cleaned_data
@@ -136,8 +134,5 @@ class UserInfoUpdate(View):
 
     # A Temp get for test purposes
     def get(self, request):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         form = UserInfoUpdateForm(instance=request.user)
         return render(request, template_name='Temp_User_info_udate.html', context={'form': form})

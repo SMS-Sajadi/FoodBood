@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden, Http404
 from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import UserTable
 from .models import Address
 from resturants.models import Restaurant
@@ -23,25 +24,19 @@ class HomePage(View):
             return redirect('account_login_url')
 
 
-class SettingPage(View):
+class SettingPage(LoginRequiredMixin, View):
     """
     This is the basic class for showing the setting page.
     """
     def get(self, request):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         return render(request, template_name='Setting_page.html')
 
 
-class FavPage(View):
+class FavPage(LoginRequiredMixin, View):
     """
     This is the View for handling the Favorates Page
     """
     def get(self, request):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         user = request.user
         fav_rest = user.fav_rest.all()
         fav_food = user.fav_food.all()
@@ -54,14 +49,11 @@ class FavPage(View):
         return render(request, template_name='Fav_Page.html', context=context)
 
 
-class FavDelete(View):
+class FavDelete(LoginRequiredMixin, View):
     """
     This is a class view for managing the user favorites delete.
     """
     def get(self, request, type, item_id):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         user = request.user
         if type == 'restaurant':
             try:
@@ -85,14 +77,11 @@ class FavDelete(View):
             return Http404(request)
 
 
-class FavAdd(View):
+class FavAdd(LoginRequiredMixin, View):
     """
     This is a class view for managing the user favorites add.
     """
     def get(self, request, type, item_id):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         user = request.user
         if type == 'restaurant':
             try:
@@ -116,14 +105,11 @@ class FavAdd(View):
             return Http404(request)
 
 
-class SavedAddress(View):
+class SavedAddress(LoginRequiredMixin, View):
     """
     This is the View for handling the Saved Addresses
     """
     def get(self, request):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         user = request.user
         fav_addr = user.fav_addr.all()
 
@@ -134,14 +120,11 @@ class SavedAddress(View):
         return render(request, template_name='Fav_Address_Page.html', context=context)
 
 
-class SavedAddressDelete(View):
+class SavedAddressDelete(LoginRequiredMixin, View):
     """
     This is a class view for managing the user address delete.
     """
     def get(self, request, item_id):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         user = request.user
         try:
             addr = Address.objects.get(id=item_id)
@@ -156,14 +139,11 @@ class SavedAddressDelete(View):
         return redirect('saved_address_url')
 
 
-class SavedAddressAdd(View):
+class SavedAddressAdd(LoginRequiredMixin, View):
     """
     This is a class view for managing the user address delete.
     """
     def post(self, request):
-        if not request.user.is_authenticated:
-            return HttpResponseForbidden(request)
-
         user = request.user
         form = AddressCreateForm(request.POST)
         if form.is_valid():
