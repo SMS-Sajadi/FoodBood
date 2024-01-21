@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden, Http404
 from django.views.generic import View
 from accounts.models import UserTable
+from .models import Address
 from resturants.models import Restaurant
 from foods.models import Food
 from django.contrib import messages
+from .forms import AddressCreateForm
 
 
 class HomePage(View):
@@ -112,3 +114,69 @@ class FavAdd(View):
             return redirect('fav_page_url')
         else:
             return Http404(request)
+
+
+class SavedAddress(View):
+    """
+    This is the View for handling the Saved Addresses
+    """
+    def get(self, request):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden(request)
+
+        user = request.user
+        fav_addr = user.fav_addr.all()
+
+        context = {
+            'fav_addr': fav_addr,
+        }
+
+        return render(request, template_name='Fav_Address_Page.html', context=context)
+
+
+class SavedAddressDelete(View):
+    """
+    This is a class view for managing the user address delete.
+    """
+    def get(self, request, item_id):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden(request)
+
+        user = request.user
+        try:
+            addr = Address.objects.get(id=item_id)
+            if user == addr.user:
+                addr.delete()
+            else:
+                return HttpResponseForbidden(request)
+        except Address.DoesNotExist:
+            messages.error(request, 'Address Not Found!')
+            return redirect('saved_address_url')
+        messages.success(request, 'Address Removed Successfully!')
+        return redirect('saved_address_url')
+
+
+class SavedAddressAdd(View):
+    """
+    This is a class view for managing the user address delete.
+    """
+    def post(self, request):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden(request)
+
+        user = request.user
+        form = AddressCreateForm(request.POST)
+        if form.is_valid():
+            addr = form.instance
+            addr.user = user
+            addr.save()
+            messages.success(request, "The Address Saved Successfully!")
+            return redirect('home_page_url')
+
+        messages.error(request, "The Address is invalid!")
+        return redirect('home_page_url')
+
+    def get(self, request):
+        form = AddressCreateForm()
+        return render(request, template_name='Temp_Create_Address.html', context={'form': form})
+
