@@ -9,4 +9,5 @@ urlpatterns = [
     path('logout/', views.UserLogout.as_view(), name='account_logout_url'),
     path('password_forget/', views.UserPasswordReset.as_view(), name='account_password_forget_url'),
     path('passreset/<uidb64>/<token>', forget_password.reset, name='account_password_reset_url'),
+    path('update_profile/', views.UserInfoUpdate.as_view(), name='account_info_update_url'),
 ]

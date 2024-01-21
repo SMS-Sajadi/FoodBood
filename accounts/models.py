@@ -1,7 +1,14 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from foods.models import Cart, Food
 from resturants.models import Restaurant
+
+
+def phone_validate(value: str):
+    if not value.isnumeric():
+        raise ValidationError(f"{value} is not a correct phone number.")
 
 
 class UserTableManager(BaseUserManager):
@@ -46,6 +53,8 @@ class UserTable(AbstractUser):
     username = None
     name = models.CharField(max_length=256)
     email = models.EmailField(max_length=256, unique=True)
+    phone_number = models.CharField(max_length=11, null=True, blank=True, validators=[MinLengthValidator(11),
+                                                                                      phone_validate])
 
     # Setting the Email as the username field for login
     EMAIL_FIELD = 'email'
@@ -53,8 +62,8 @@ class UserTable(AbstractUser):
     REQUIRED_FIELDS = ['name']
 
     # cart = models.Model
-    fav_food = models.ManyToManyField(Food)
-    fav_rest = models.ManyToManyField(Restaurant)
+    fav_food = models.ManyToManyField(Food, blank=True)
+    fav_rest = models.ManyToManyField(Restaurant, blank=True)
 
     profile_pic = models.ImageField(null=True, blank=True, upload_to="accounts/static/profile_pictures/")
 
@@ -62,5 +71,3 @@ class UserTable(AbstractUser):
 
     def __str__(self):
         return self.name + " : " + self.email
-
-

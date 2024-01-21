@@ -22,3 +22,9 @@ class UserPasswordRestEmailForm(forms.Form):
 
 class UserPasswordResetPassForm(forms.Form):
     password = forms.CharField(max_length=256, widget=forms.PasswordInput)
+
+
+class UserInfoUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserTable
+        fields = ['name', 'phone_number', 'profile_pic']

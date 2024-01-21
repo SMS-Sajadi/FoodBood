@@ -1,8 +1,9 @@
 # Needed Imports for views
 from django.shortcuts import render, redirect
+from django.http import HttpResponseForbidden
 from django.contrib import messages
 from .models import UserTable
-from .forms import UserRegisterForm, UserLoginForm, UserPasswordRestEmailForm
+from .forms import UserRegisterForm, UserLoginForm, UserPasswordRestEmailForm, UserInfoUpdateForm
 from .email_verification import activation_email
 from .forget_password import password_forget_email
 from django.contrib.auth import authenticate, login, logout
@@ -105,3 +106,35 @@ class UserPasswordReset(View):
     def get(self, request):
         form = UserPasswordRestEmailForm()
         return render(request=request, template_name="Forget_password.html", context={"form": form})
+
+
+class UserInfoUpdate(View):
+    """
+    This is the basic class for updating user information on setting page.
+    """
+    def post(self, request):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden(request)
+
+        form = UserInfoUpdateForm(request.POST, request.FILES)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            user = request.user
+            user.name = cleaned_data['name']
+            user.phone_number = cleaned_data['phone_number']
+            user.profile_pic = cleaned_data['profile_pic']
+            user.save()
+            messages.success(request, "Your Info Updated")
+            return redirect('setting_page_url')
+        else:
+            for error in list(form.errors.values()):
+                messages.error(request, error)
+            return redirect('setting_page_url')
+
+    # A Temp get for test purposes
+    def get(self, request):
+        if not request.user.is_authenticated:
+            return HttpResponseForbidden(request)
+
+        form = UserInfoUpdateForm(instance=request.user)
+        return render(request, template_name='Temp_User_info_udate.html', context={'form': form})
