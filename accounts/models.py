@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-from foods.models import Cart, Food
+from foods.models import Food
 from resturants.models import Restaurant
 
 
@@ -61,7 +61,6 @@ class UserTable(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
-    # cart = models.Model
     fav_food = models.ManyToManyField(Food, blank=True)
     fav_rest = models.ManyToManyField(Restaurant, blank=True)
 

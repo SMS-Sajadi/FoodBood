@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'foods.apps.FoodsConfig',
     'resturants.apps.ResturantsConfig',
     'home.apps.HomeConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 MIDDLEWARE = [
