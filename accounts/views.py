@@ -122,7 +122,10 @@ class UserInfoUpdate(View):
             user = request.user
             user.name = cleaned_data['name']
             user.phone_number = cleaned_data['phone_number']
-            user.profile_pic = cleaned_data['profile_pic']
+            if cleaned_data['profile_pic'] == False:
+                user.profile_pic = None
+            elif len(form.files) != 0:
+                user.profile_pic = cleaned_data['profile_pic']
             user.save()
             messages.success(request, "Your Info Updated")
             return redirect('setting_page_url')
