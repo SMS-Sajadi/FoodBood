@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for rest in fav_rest %}
+    {{ rest.name }}<br>
+    {{ rest.get_restaurant_class_display }}<br>
+    {{ rest.address }}<br>
+    <hr>
+{% endfor %}
+{% for food in fav_food %}
+    {{ food.name }}<br>
+    {{ food.get_restaurant_class_display }}<br>
+    {{ food.address }}<br>
+    <hr>
+{% endfor %}
+</body>
+</html>
