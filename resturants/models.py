@@ -9,7 +9,7 @@ class Restaurant(models.Model):
 
     description = models.TextField(null=True, blank=True)
     rating = models.FloatField(default=0.0, validators=[MinValueValidator(0), MaxValueValidator(5)])
-    num_rating = models.IntegerField(default=0)
+    num_rating = models.IntegerField(default=0, validators=[MinValueValidator(0)])
 
     res_class_chioces = (
         ('1', '$'),
@@ -20,3 +20,6 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=500, null=False, default="Isfahan")
 
     free_delivery = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name

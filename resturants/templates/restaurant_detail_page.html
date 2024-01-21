@@ -6,6 +6,13 @@
 </head>
 <body>
 {{ rest.name }}<br>
-{{ rest.description }}
+{{ rest.description }}<hr>
+{% for cate in categs %}
+{{ cate.name }}<br>
+{% endfor %}
+<hr><hr>
+{% for food in foods %}
+{{ food.name }}<br>
+{% endfor %}
 </body>
 </html>
