@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for order in orders %}
+{{ order.restaurant.name }}<br><hr>
+    {% for items in order.items.all %}
+    {{ items.food.name }}<br>{{ items.num }}<br>
+    {% endfor %}
+    <hr>
+{% endfor %}
+</body>
+</html>
