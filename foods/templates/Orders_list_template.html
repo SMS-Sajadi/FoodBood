@@ -8,9 +8,9 @@
 {% for order in orders %}
 {{ order.restaurant.name }}<br><hr>
     {% for items in order.items.all %}
-    {{ items.food.name }}<br>{{ items.num }}<br>
+    {{ items.food.name }}<br>{{ items.num }}<br>{{ items.price }}<br>
     {% endfor %}
-    <hr>
+    {{ order.price }}<br>{{ order.final_price }}<hr>
 {% endfor %}
 </body>
 </html>

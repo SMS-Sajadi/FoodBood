@@ -12,7 +12,8 @@ class Food(models.Model):
 
     category = models.CharField(max_length=64)
 
-    price = models.FloatField(null=False, blank=False, validators=[MinValueValidator(0)])
+    price = models.DecimalField(default=0, decimal_places=2, max_digits=10, null=False, blank=False,
+                                validators=[MinValueValidator(0)])
 
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='foods')
 
