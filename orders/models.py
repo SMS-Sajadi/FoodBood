@@ -27,7 +27,7 @@ class Order(models.Model):
     )
 
     status = models.CharField(max_length=1, default='1', choices=status_choices, null=False, blank=False)
-    time = models.DateTimeField(auto_now_add=True)
+    time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return (str(self.id) + ":" + self.user.name + ":" + self.restaurant.name + ":"
