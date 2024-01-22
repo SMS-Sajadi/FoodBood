@@ -1,0 +1,11 @@
+.upcoming-orders
+{
+    background-color: #F7F7F7;
+    border-radius: 15px;
+}
+
+.col-fixed
+{
+    height: fit-content;
+    width: fit-content;
+}

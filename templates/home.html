@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home-style.css">
+    <link rel="stylesheet" href="css/css-home-2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="d-flex flex-row">
+        <div class="d-flex flex-column justify-content-between nibble-container">
+            <div class="d-flex flex-column justify-content-start ">
+                <div class="d-flex flex-row ms-4 mt-3 align-items-center ">
+                    <img src="/pics/Icon copy.png" alt="burger">
+                    <p class="ms-3 mt-3">
+                        Nibble
+                    </p>
+                </div>
+                <div class="ms-4">
+                    <div id="my_btn" class="mt-4 left-menu">
+                        <img src="/pics/Home.png">
+                        <a class="ms-3 link-adjustment" href="#home">Home</a>
+                    </div>
+                    <div id="my_btn2" class="mt-4 left-menu">
+                        <img src="/pics/Feed copy.png">
+                        <a class="ms-3 link-adjustment" href="#about">Explore</a>
+                    </div>
+                    <div id="my_btn3" class="mt-4 left-menu">
+                        <img src="/pics/save copy.png">
+                        <a class="ms-3 link-adjustment" href="#services">Favourites</a>
+                    </div>
+                    <div id="my_btn4" class="mt-4 left-menu" onclick="goTo_orders();">
+                        <img src="/pics/Document copy.png">
+                        <a class="ms-3 link-adjustment" href="#contact">orders</a>
+                    </div>
+                    <div id="my_btn5" class="mt-4 left-menu">
+                        <img src="/pics/Settings copy.png">
+                        <a class="ms-3 link-adjustment" href="#contact">settings</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center clarke-div">
+                <img class="mark-clarke" src="/pics/Image copy.png">
+                <p>
+                    <b>Mark Clarke</b>
+                    <br>
+                    markclarke@gmail.com
+                </p>
+                <img class="options" src="/pics/Options copy.png">
+            </div>
+        </div>
+    <div class="class=d-flex flex-column justify-content-center align-items-center  rightmost-div" style="padding: 32px;">
+        <div class="col-lg-6 d-none d-lg-block" style="width: 100%;">
+        <div class="d-flex flex-row navbar align-items-center justify-content-between ">
+            <div class="d-flex flex-row">
+                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="/pics/Location copy.png"><p class="fs-one ms-3 m-0 text-center text-nowrap">San Francisco, California</p><img class="arrow-size ms-3" src="/pics/Options copy.png"> </div>
+                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="/pics/Shopping-bag copy.png"> <p class="fs-one m-0 ms-3 text-center text-nowrap">Pick up</p><img class="arrow-size ms-3" src="/pics/Options copy.png"> </div>
+                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="/pics/Icon copy 2.png"><p p class="fs-one ms-3 m-0 text-center text-nowrap">best deals</p><img class="arrow-size ms-3 " src="/pics/Options copy.png"> </div>
+               
+            </div>
+            <div class="d-flex search-margin">
+                <div class="relative-search">
+                    <img class="search-icon" src="/pics/Search.png">
+                    <input type="search" class="search-container nav-margin" id="search" name="search" placeholder="search for anything...">
+                </div>
+            </div>
+            <div class=" d-flex justify-content-between "><img src="/pics/48px copy.png"><img class="cart-container" src="/pics/cart copy.png"> </div>
+    
+        </div>
+        </div>
+        <div class="col-12 d-sm-block d-lg-none">
+            <div class=" d-flex justify-content-between ">
+                <div>
+                </div>
+                <div><img src="/pics/48px copy.png"><img class="cart-container" src="/pics/cart copy.png"></div>
+            </div>
+        </div>
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-column"  style="margin-top: 48px;">
+                <div class="d-flex flex-row justify-content-between">
+                    <h5>Explore categories</h5>
+                    <button class="see-all-btn">see all <img src="/pics/arrow copy.png"></button>
+                </div>
+                <div class="d-flex flex-row justify-content-between" style="overflow-x: hidden;">
+                    <div class="d-flex flex-column justify-content-center align-items-center categories">
+                        <img class="cat-pics" src="/pics/fire copy.png">
+                        <div>
+                            <b><p class="text-center">Popular</p></b>
+                            <p>286+ options</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center categories">
+                        <img class="cat-pics" src="/pics/motor copy.png">
+                        <div>
+                            <b><p class="text-center">Fast delivery</p></b>
+                            <p>1,843+ options</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center categories">
+                        <img class="cat-pics" src="/pics/highclass.png">
+                        <div>
+                            <b><p class="text-center">High class</p></b>
+                            <p>25+ options</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center categories">
+                        <img class="cat-pics" src="/pics/dine.png">
+                        <div>
+                            <b><p class="text-center">Dine in</p></b>
+                            <p>182+ options</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center categories">
+                        <img class="cat-pics" src="/pics/delivery.png">
+                        <div>
+                            <b><p class="text-center">Pick up</p></b>
+                            <p>3,548+ options</p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center categories">
+                        <img class="cat-pics" src="/pics/24px-icon-inside.png">
+                        <div class="">
+                            <b><p class="text-center">Nearest</p></b>
+                            <p>44+ options</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  style="margin-top: 48px;">
+                <div class="d-flex flex-row justify-content-between">
+                    <h5>Featured restaurants</h5>
+                    <button class="see-all-btn">see all <img src="/pics/arrow copy.png"></button>
+                </div>
+                <div class="container">
+                    <div class="row mt-4">
+                        <div class="d-flex flex-row col-4 features-bx">
+                            <div class="d-flex burger-bg"><img class="burgerking" src="/pics/burgerking.png"></div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <h5 class="ms-3">Burger King</h5>
+                                <div class="d-flex flex-row align-items-center justify-content-between ms-3">
+                                <div class="d-flex flex-row grid-img"><img src="/pics/Star.png"><p class="bx-font">4.8 (1,873)</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Silverware.png"><p class="bx-font ms-1">Burger</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Money.png"><p class="bx-font ms-1">$</p></div>
+                                </div>
+                                <div class="d-flex flex-row grid-img ms-3 "><div class="free-delivery" ><p class="bx-font ">Free delivery</p></div><div class=" d-flex flex-row ms-3"><img src="/pics/Location copy 2.png"><p class="bx-font ms-3">4.3 km</p></div></div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row col-4 features-bx">
+                            <div class="d-flex burger-bg"><img class="burgerking" src="/pics/Logo (1).png"></div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <h5 class="ms-3">Carrows Restaurant</h5>
+                                <div class="d-flex flex-row align-items-center justify-content-between ms-3">
+                                <div class="d-flex flex-row grid-img"><img src="/pics/Star.png"><p class="bx-font">4.8 (1,873)</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Silverware.png"><p class="bx-font ms-1">Burger</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Money.png"><p class="bx-font ms-1">$</p></div>
+                                </div>
+                                <div class="d-flex flex-row grid-img ms-3 "><div class="free-delivery" ><p class="bx-font ">Free delivery</p></div><div class=" d-flex flex-row ms-3"><img src="/pics/Location copy 2.png"><p class="bx-font ms-3">0,3 km</p></div></div>
+                            </div>
+                        
+                         
+                        </div>
+                        <div class="d-flex flex-row col-4 features-bx">
+                            <div class="d-flex burger-bg"><img class="burgerking" src="/pics/kfc.png"></div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <h5 class="ms-3">Carrows Restaurant</h5>
+                                <div class="d-flex flex-row align-items-center justify-content-between ms-3">
+                                <div class="d-flex flex-row grid-img"><img src="/pics/Star.png"><p class="bx-font">4.8 (1,873)</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Silverware.png"><p class="bx-font ms-1">Burger</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Money.png"><p class="bx-font ms-1">$</p></div>
+                                </div>
+                                <div class="d-flex flex-row grid-img ms-3 "><div class="free-delivery" ><p class="bx-font ">Free delivery</p></div><div class=" d-flex flex-row ms-3"><img src="/pics/Location copy 2.png"><p class="bx-font ms-3">0,3 km</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="d-flex flex-row col-4 features-bx">
+                            <div class="d-flex burger-bg"><img class="burgerking" src="/pics/domminos.png"></div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <h5 class="ms-3">Carrows Restaurant</h5>
+                                <div class="d-flex flex-row align-items-center justify-content-between ms-3">
+                                <div class="d-flex flex-row grid-img"><img src="/pics/Star.png"><p class="bx-font">4.8 (1,873)</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Silverware.png"><p class="bx-font ms-1">Burger</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Money.png"><p class="bx-font ms-1">$</p></div>
+                                </div>
+                                <div class="d-flex flex-row grid-img ms-3 "><div class="free-delivery" ><p class="bx-font ">Free delivery</p></div><div class=" d-flex flex-row ms-3"><img src="/pics/Location copy 2.png"><p class="bx-font ms-3">0,3 km</p></div></div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row col-4 features-bx">
+                            <div class="d-flex burger-bg"><img class="burgerking" src="/pics/mcdonalds.png"></div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <h5 class="ms-3">Carrows Restaurant</h5>
+                                <div class="d-flex flex-row align-items-center justify-content-between ms-3">
+                                <div class="d-flex flex-row grid-img"><img src="/pics/Star.png"><p class="bx-font">4.8 (1,873)</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Silverware.png"><p class="bx-font ms-1">Burger</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Money.png"><p class="bx-font ms-1">$</p></div>
+                                </div>
+                                <div class="d-flex flex-row grid-img ms-3 "><div class="free-delivery" ><p class="bx-font ">Free delivery</p></div><div class=" d-flex flex-row ms-3"><img src="/pics/Location copy 2.png"><p class="bx-font ms-3">0,3 km</p></div></div>
+                            </div>
+                        
+                        </div>
+                        <div class="d-flex flex-row col-4 features-bx">
+                            
+                            <div class="d-flex burger-bg"><img class="burgerking" src="/pics/pizzahut.png"></div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <h5 class="ms-3">Carrows Restaurant</h5>
+                                <div class="d-flex flex-row align-items-center justify-content-between ms-3">
+                                <div class="d-flex flex-row grid-img"><img src="/pics/Star.png"><p class="bx-font">4.8 (1,873)</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Silverware.png"><p class="bx-font ms-1">Burger</p></div>
+                                <div class="d-flex flex-row grid-img margin-grid"><img src="/pics/Money.png"><p class="bx-font ms-1">$</p></div>
+                                </div>
+                                <div class="d-flex flex-row grid-img ms-3 "><div class="free-delivery" ><p class="bx-font ">Free delivery</p></div><div class=" d-flex flex-row ms-3"><img src="/pics/Location copy 2.png"><p class="bx-font ms-3">0,3 km</p></div></div>
+                            </div>
+                          </div>
+                        
+                          </div>
+
+
+            </div>
+          
+        </div>
+        </div>
+        <div  style="margin-top: 48px;">
+            <div  class="d-flex flex-row justify-content-between">
+                <h5>Asian food</h5>
+                <button  class="see-all-btn">see all <img src="/pics/arrow copy.png"></button>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="/pics/salad.png">
+                        <div  class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">Spicy Na Thai Town</p><p class="free-delivery text-center pt-1 ">Free delivery</p></div>
+                    </div>
+                    <div class="col-4">
+                        <img src="/pics/noodles.png">
+                        <div  class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">Szechuan Dan Dan Noodles</p><p class="free-delivery text-center pt-1">$1.99 Delivery</p></div>
+                    </div>
+                    <div class="col-4">
+                        <img src="/pics/chiken.png">
+                        <div class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">Pot Chicken Adobo</p><p class="free-delivery pt-1">Free delivery</p></div>
+                    </div>
+                </div>
+            </div>
+         
+           
+        </div>
+    </div>
+    </div>  
+    </div> 
+</div>
+</body>
+<script src="/js/home.js"></script>
+</html>

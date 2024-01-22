@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home-style.css">
+    <link rel="stylesheet" href="css/css-home-2.css">
+    <link rel="stylesheet" href="css/orders.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="d-flex flex-row">
+        <div class="d-flex flex-column justify-content-between">
+            <div class="d-flex flex-column justify-content-start nibble-container">
+                <div class="d-flex flex-row ms-4 mt-3 align-items-center ">
+                    <img src="/pics/Icon copy.png" alt="burger">
+                    <p class="ms-3 mt-3">
+                        Nibble
+                    </p>
+                </div>
+                <div class="ms-4">
+                    <div id="my_btn" class="mt-4 left-menu">
+                        <img src="/pics/home copy.png">
+                        <a class="ms-3 link-adjustment" href="#home">Home</a>
+                    </div>
+                    <div id="my_btn2" class="mt-4 left-menu">
+                        <img src="/pics/Feed copy.png">
+                        <a class="ms-3 link-adjustment" href="#about">Explore</a>
+                    </div>
+                    <div id="my_btn3" class="mt-4 left-menu">
+                        <img src="/pics/save copy.png">
+                        <a class="ms-3 link-adjustment" href="#services">Favourites</a>
+                    </div>
+                    <div id="my_btn4" class="mt-4 left-menu" onclick="goTo_orders();">
+                        <img src="/pics/Document copy.png">
+                        <a class="ms-3 link-adjustment" href="#contact">orders</a>
+                    </div>
+                    <div id="my_btn5" class="mt-4 left-menu">
+                        <img src="/pics/Settings copy.png">
+                        <a class="ms-3 link-adjustment" href="#contact">settings</a>
+                    </div>
+                    
+                </div>
+            </div>
+                <div class="d-flex flex-row align-items-end justify-content-center clarke-div">
+                    <img class="mark-clarke" src="/pics/Image copy.png">
+                    <p>
+                        <b>Mark Clarke</b>
+                        <br>
+                        markclarke@gmail.com
+                    </p>
+                    <img class="options" src="/pics/Options copy.png">
+                </div>
+        </div>
+    <div class="class=d-flex flex-column justify-content-center  rightmost-div">
+        <div class="d-flex flex-row navbar ">
+            <div class="d-flex flex-row nav-margin"><img class="img-size" src="/pics/Location copy.png"><p class="fs-one ms-3 text-nowrap">San Francisco, California</p><img class="arrow-size ms-3" src="/pics/Options copy.png"> </div>
+            <div class="d-flex flex-row nav-margin"><img class="img-size" src="/pics/Shopping-bag copy.png"> <p class="fs-one ms-3 text-nowrap">Pick up</p><img class="arrow-size ms-3" src="/pics/Options copy.png"> </div>
+            <div class="d-flex flex-row nav-margin"><img class="img-size" src="/pics/Icon copy 2.png"><p p class="fs-one ms-3 text-nowrap">best deals</p><img class="arrow-size ms-3 " src="/pics/Options copy.png"> </div>
+            <div class="d-flex search-margin">
+                <div class="relative-search">
+                    <img class="search-icon" src="/pics/Search.png">
+                    <input type="search" class="search-container nav-margin" id="search" name="search" placeholder="search for anything...">
+                </div>
+                <div class="ms-5 d-flex justify-content-between "><img src="/pics/48px copy.png"><img class="cart-container" src="/pics/cart copy.png"> </div>
+            </div>
+        </div>
+        
+        <div class="container mt-5">
+            <h2>Upcoming orders</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="border: none;">
+                        <div class="card-body upcoming-orders">
+                            <div class="d-flex flex-row justify-content-between"><h5 class="card-title">burger king</h5><p>#1DF90E</p></div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="d-flex flex-row">
+                                    <img src="/pics/Icon.png" style="height: 24px; width: 24px;">
+                                    <div><p>Estimated arrival</p><h2>35 min</h2></div>
+                                </div>
+                                <a href="#" class="btn btn-primary " data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample style="height: 40px; width: 96px; background-color: #503E9D;">Track</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="border: none;">
+                        <div class="card-body upcoming-orders">
+                            <div class="d-flex flex-row justify-content-between"><h5 class="card-title">burger king</h5><p>#1DF90E</p></div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="d-flex flex-row">
+                                    <img src="/pics/Icon.png" style="height: 24px; width: 24px;">
+                                    <div><p>Estimated arrival</p><h2>35 min</h2></div>
+                                </div>
+                                <a href="#" class="btn btn-primary" style="height: 40px; width: 96px; background-color: #503E9D;">Track</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <h2 class="mt-5">Previous orders</h2>
+        <div class="row">
+            <!-- Previous Order Card -->
+            <div class="col-md-6" style="height:fit-content ; width: fit-content;">
+                <div class="card" style="width: 336px; height: 262px; background-color: #F7F7F7; border-radius: 10px;">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h5 class="card-title">pizza Hut</h5>
+                            <span id="orderStatus" class="badge bg-success">Completed</span>
+                        </div>
+                        <ul>
+                            <li><p>1</p> Delicious Cheese Pie</li>
+                            <li><p>1</p> Peperoni Pie</li>
+                          </ul>
+                          <div class="d-flex flex-row justify-content-between">
+                            <a href="#" class="btn" style="background-color: #FB6D3A; color: white; height:40px; width: 144px;">Details</a>
+                            <a href="#" class="btn btn-secondary" style="background-color: rgba(251, 109, 58, 0.5); height:40px; width: 144px; border: none;">Get Help</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="height:fit-content ; width: fit-content;">
+                <div class="card" style="width: 336px; height: 262px; background-color: #F7F7F7; border-radius: 10px;">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h5 class="card-title">pizza Hut</h5>
+                            <span id="orderStatus" class="badge bg-success">Completed</span>
+                        </div>
+                        <ul>
+                            <li><p>1</p> Delicious Cheese Pie</li>
+                            <li><p>1</p> Peperoni Pie</li>
+                          </ul>
+                          <div class="d-flex flex-row justify-content-between">
+                            <a href="#" class="btn" style="background-color: #FB6D3A; color: white; height:40px; width: 144px;">Details</a>
+                            <a href="#" class="btn btn-secondary" style="background-color: rgba(251, 109, 58, 0.5); height:40px; width: 144px; border: none;">Get Help</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="height:fit-content ; width: fit-content;">
+                <div class="card" style="width: 336px; height: 262px; background-color: #F7F7F7; border-radius: 10px;">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h5 class="card-title">pizza Hut</h5>
+                            <span id="orderStatus" class="badge bg-success">Completed</span>
+                        </div>
+                        <ul>
+                            <li><p>1</p> Delicious Cheese Pie</li>
+                            <li><p>1</p> Peperoni Pie</li>
+                          </ul>
+                          <div class="d-flex flex-row justify-content-between">
+                            <a href="#" class="btn" style="background-color: #FB6D3A; color: white; height:40px; width: 144px;">Details</a>
+                            <a href="#" class="btn btn-secondary" style="background-color: rgba(251, 109, 58, 0.5); height:40px; width: 144px; border: none;">Get Help</a>
+                          </div>
+                    </div>
+                </div>
+            </div>        
+            </div>
+            
+            <!-- Add more previous order cards as needed -->
+      
+        <div class="row">
+            <div class="col-md-6" style="height:fit-content ; width: fit-content;">
+                <div class="card" style="width: 336px; height: 262px; background-color: #F7F7F7; border-radius: 10px;">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h5 class="card-title">pizza Hut</h5>
+                            <span id="orderStatus" class="badge bg-success">Completed</span>
+                        </div>
+                        <ul>
+                            <li><p>1</p> Delicious Cheese Pie</li>
+                            <li><p>1</p> Peperoni Pie</li>
+                          </ul>
+                          <div class="d-flex flex-row justify-content-between">
+                            <a href="#" class="btn" style="background-color: #FB6D3A; color: white; height:40px; width: 144px;">Details</a>
+                            <a href="#" class="btn btn-secondary" style="background-color: rgba(251, 109, 58, 0.5); height:40px; width: 144px; border: none;">Get Help</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="height:fit-content ; width: fit-content;">
+                <div class="card" style="width: 336px; height: 262px; background-color: #F7F7F7; border-radius: 10px;">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between">
+                            <h5 class="card-title">pizza Hut</h5>
+                            <span id="orderStatus" class="badge bg-success">Completed</span>
+                        </div>
+                        <ul>
+                            <li><p>1</p> Delicious Cheese Pie</li>
+                            <li><p>1</p> Peperoni Pie</li>
+                          </ul>
+                          <div class="d-flex flex-row justify-content-between">
+                            <a href="#" class="btn" style="background-color: #FB6D3A; color: white; height:40px; width: 144px;">Details</a>
+                            <a href="#" class="btn btn-secondary" style="background-color: rgba(251, 109, 58, 0.5); height:40px; width: 144px; border: none;">Get Help</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <!-- Your content goes here -->
+            </div>
+        </div>
+    </div> 
+</div>
+</body>
+<script src="/js/home.js"></script>
+</html>
