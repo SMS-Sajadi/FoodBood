@@ -50,7 +50,7 @@ class OrdersAddPromo(LoginRequiredMixin, View):
 
 class OrderItemAdd(LoginRequiredMixin, View):
     """
-    In this class wee handle the item adding for the carts
+    In this class we handle the item adding for the carts
     """
     def post(self, request, food_id):
         user = request.user
@@ -93,7 +93,7 @@ class OrderItemAdd(LoginRequiredMixin, View):
 
 class OrderItemDelete(LoginRequiredMixin, View):
     """
-    In this class wee handle the item deleting the items from carts
+    In this class we handle the item deleting the items from carts
     """
     def get(self, request, orderitem_id):
         user = request.user
@@ -115,3 +115,47 @@ class OrderItemDelete(LoginRequiredMixin, View):
 
         messages.success(request, "Item Deleted Successfully")
         return redirect('home_page_url')
+
+
+class OrderCheckout(LoginRequiredMixin, View):
+    """
+    In this class we handle the order checkout option
+    """
+    def get(self, request, order_id):
+        user = request.user
+        try:
+            order = Order.objects.get(id=order_id, status='1')
+        except Exception:
+            messages.error(request, "The Order Was not Found!")
+            raise Http404(request)
+
+        if order.user != user:
+            return HttpResponseForbidden(request)
+
+        order.status = '2'
+        order.save()
+
+        messages.success(request, "The Order Checked Out!")
+        return redirect('orders_list_url')
+
+
+class OrderCancel(LoginRequiredMixin, View):
+    """
+    In this class we handle the order cancel option
+    """
+    def get(self, request, order_id):
+        user = request.user
+        try:
+            order = Order.objects.get(id=order_id, status='2')
+        except Exception:
+            messages.error(request, "The Order Was not Found!")
+            raise Http404(request)
+
+        if order.user != user:
+            return HttpResponseForbidden(request)
+
+        order.status = '4'
+        order.save()
+
+        messages.success(request, "The Order Canceled")
+        return redirect('orders_list_url')

@@ -3,7 +3,7 @@ from accounts.models import UserTable
 from resturants.models import Restaurant
 from foods.models import Food
 from django.core.validators import MinValueValidator
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
 
 
@@ -50,7 +50,7 @@ def update_orderitem_price(sender, instance, **kwargs):
     instance.price = food.price * instance.num
 
 
-@receiver([post_save], sender=OrderItem)
+@receiver([post_save, post_delete], sender=OrderItem)
 def update_order_price_caller(sender, instance, **kwargs):
     instance.order.save()
 
