@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseForbidden, Http404
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-from accounts.models import UserTable
 from .models import Address
 from resturants.models import Restaurant
 from foods.models import Food
