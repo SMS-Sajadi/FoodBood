@@ -31,7 +31,7 @@ class UserRegister(View):
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
-            return render(request=request, template_name="register.html", context={"form": form})
+            return render(request=request, template_name="register.html", context={"form": form}, status=400)
 
     def get(self, request):
         form = UserRegisterForm()
@@ -52,19 +52,21 @@ class UserLogin(View):
                 login(request, user)
                 messages.success(request, "User logged in successfully!", "success")
                 return redirect('home_page_url')
-            else:
+            elif UserTable.objects.filter(email=cleaned_data['email']).exists():
                 check_user = UserTable.objects.get(email=cleaned_data['email'])
                 password = cleaned_data['password']
                 if check_user is not None and check_user.check_password(password):
                     messages.error(request, "You Should Verify Your Email First!", "danger")
                 else:
                     messages.error(request, "Check your username and password!", "danger")
-                return render(request=request, template_name="login.html", context={"form": form})
+                return render(request=request, template_name="login.html", context={"form": form}, status=404)
+            else:
+                return HttpResponseForbidden()
 
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
-            return render(request=request, template_name="login.html", context={"form": form})
+            return render(request=request, template_name="login.html", context={"form": form}, status=404)
 
     def get(self, request):
         form = UserLoginForm()
