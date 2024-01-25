@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signup-style.css">
+    <link rel="stylesheet" href="css/sign-in.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>sign-in</title>
+</head>
+<body>
+    <div class="d-flex flex-row">
+        <div class="d-flex flex-column justify-content-center align-items-center signup-left-container">
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <img class="burger-size" src="/pics/Icon copy.png">
+                <b><p class="display-6 fw-700 text-light">Nibble</p></b>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center rightmost-container rightmost-scale">
+            <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                <div>
+                    <div>
+                        <h2>
+                            Welcome!
+                        </h2>
+                        <p class="grey-txt">Sign in to your account to continue</p>
+                    </div>
+                    <div class="d-flex flex-column ">
+                        <br>
+                        <div class="d-flex flex-row justify-content-between right-width">
+                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="/pics/mail.png"></div>
+                            <div class="d-flex flex-column p-container "><label>Email address</label><input placeholder="markclarke@gmail.com"></input><div class="line"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="d-flex flex-column justify-content-between align-itemss-center last-div-signin">
+                    <button type="button" class="d-flex justify-content-center align-items-center create-acc-btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop"><p class="text-light">continue</p></button>
+                    <br>
+                </div>
+            </div>
+            
+        </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class=" modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">reset Email</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center modal-body">
+        <div class="d-flex  justify-content-center align-items-center modal-mail"><img class="white-mail-size" src="/pics/Mail-white.png"></div>
+        <div>
+            <h2 class="text-center">Reset email sent</h2>
+            <br>
+            <p>We have just sent an email with a password reset</p>
+            <p class="text-center">link to <b>markclarke@gmail.com.</b></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex flex-row justify-content-between align-items-center footer-width">
+            <button type="button" class="got-it-btn" data-bs-dismiss="modal">got it</button>
+            <button type="button" class="send-btn">send again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+</body>
+</html>

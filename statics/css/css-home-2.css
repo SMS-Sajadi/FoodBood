@@ -1,0 +1,82 @@
+.features-bx
+{
+    height: 96px;
+    width: 380px;
+}
+
+.burgerking
+{
+    height: 64px;
+    width: 64px;
+}
+
+.bx-font
+{
+    font-size: 12px;
+}
+
+.grid-img
+{
+    height: 16px;
+    width: 50%;
+    white-space: nowrap;
+    
+}
+
+.margin-grid
+{
+    margin-left: 10%;
+}
+
+.free-delivery
+{
+   color: #503E9D; 
+   background-color: rgba(80, 62, 157, 0.1);
+   height: 24px;
+   /* width: 85px; */
+   padding-inline: 15px;
+   font-size: 10px;
+   text-align: center;
+
+}
+
+.burger-bg
+{
+    background-color: #F7F7F7;
+    border-radius: 10px;
+}
+
+.mark-clarke
+{
+    height: 48px;
+    width: 48px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.options
+{
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+}
+
+.clarke-div
+{
+    /* margin-top: 600px; */
+}
+
+.link-adjustment
+{
+    text-decoration: none;
+    color: #626264;
+}
+
+.purpleBackground 
+{
+    background-color: #503E9D;
+    width: 272px;
+    height: 56px;
+    border-radius: 10px;
+  }
+  
