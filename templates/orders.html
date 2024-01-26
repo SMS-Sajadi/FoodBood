@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="css/home-style.css">
     <link rel="stylesheet" href="css/css-home-2.css">
     <link rel="stylesheet" href="/css/orders.css">
+    <link rel="stylesheet" href="/css/order_card.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -106,7 +107,7 @@
                                         </div>
                                     </div>
                                    
-                                    <button class="order_btn">Track</button>
+                                    <button class="order_btn" data-toggle="modal" data-target="#OrderCard">Track</button>
                                 </div>
                                 <div class="d-flex flex-row justify-content-between align-items-center w-100" style="gap: 4px;">
                                     <div class="first_div">
@@ -139,7 +140,7 @@
                                         </div>
                                     </div>
                                    
-                                    <button class="order_btn">Track</button>
+                                    <button class="order_btn" data-toggle="modal" data-target="#OrderCard">Track</button>
                                 </div>
                             </div>
                           
@@ -185,7 +186,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row justify-content-between ">
-                                    <button class="prev_datails_btn">Details
+                                    <button data-toggle="modal" data-target="#PrevOrderCard" class="prev_datails_btn">Details
                                     </button>
                                     <button class="prev_help_btn"> Get help</button>
                                 </div>
@@ -276,5 +277,213 @@
     </div> 
 </div>
 </body>
+<div class="modal" id="OrderCard">
+    <div class="Card">
+        <div  class="d-flex flex-row justify-content-between w-100" style="position: relative;">
+            <img class="map_img" src="/pics/Map.svg" />
+            <img width="24" height="24" class="map_close" src="/pics/Close.png"  data-dismiss="modal"></img>
+        </div>
+        <div class="d-flex flex-row justify-content-center gap-3 mt-4">
+            <div class="d-flex flex-row gap-3">
+                <img src="/./pics/Clock.svg" />
+                <div>
+                    <p class="order_state">Estimated arrival</p>
+                    <p class="order_time">35 min</p>
+                </div>
+            </div>
+            <div class="d-flex flex-row gap-3">
+                <img src="/./pics/Clock.svg" />
+                <div>
+                    <p class="order_state">Distance</p>
+                    <p class="order_time">3.6 km</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center w-100" style="gap: 4px;">
+            <div class="first_div">
+                <div class="subfirst_div"></div>
+            </div>
+            <div class="second_div">
+                <div class="subsecond_div"></div>
+            </div>
+            <div class="third_div">
+                <div class="subthird_div"></div>
+            </div>
+        </div>
+        <div class="p-3">
+            <div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <img src="/pics/32px.svg" />
+                    <div>
+                        <div>Delivered</div>
+                    
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <img src="/pics/32px copy.svg" />
+                    <div>
+                        <div>On the way</div>
+                   
+                    </div>
+                    <div>
+                        12:48 am
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <img src="/pics/32px copy.svg" />
+                    <div>
+                        <div>On the way</div>
+                   
+                    </div>
+                    <div>
+                        12:48 am
+                    </div>
+                </div>
+                <div class="d-flex flex-row gap-3">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M16 9.14286H9.14286V16H6.85714V9.14286H0V6.85714H6.85714V0H9.14286V6.85714H16V9.14286Z" fill="#503E9D"/>
+                          </svg>
+                    </div>
+                    <div class="more_items_text">
+                        Add more items
+                    </div>
+                    
+                   
+                </div>
+       
+           
+              
+            </div>
+            <div class="d-flex flex-row gap-3">
+                <button class="chat_btn">
+                    <img src="/pics/Icon copy 2.svg" />
+                </button>
+                <button class="card_call">Call to (Edward)</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="title_modal">Personal information</div>
+    <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img> -->
+  </div>
+  <div class="modal" id="PrevOrderCard">
+    <div class="PrevCard">
+        <div  class="d-flex flex-row justify-content-between w-100">
+            <div class="card_title">Order details</div>
+            <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img>
+        </div>
+        <div class="d-flex flex-row justify-content-between mt-4">
+            <div>
+                <div class="deliver_title">Deliver to </div>
+                <div class="deliver_address">300 Post Street San Francisco, CA </div>
+            </div>
+            <div><img src="/pics/arrow copy.png"></div>
+        </div>
+        <div>
+            <div>Pizza Hut</div>
+            <div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <div class="d-flex flex-row gap-3">
+                        <div class="prev_num">1</div>
+                        <div>Peperoni Pie</div>
+                    </div>
+                
+                    <div>
+                        <div>$23</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <div class="d-flex flex-row gap-3">
+                        <div class="prev_num">1</div>
+                        <div>Peperoni Pie</div>
+                    </div>
+                
+                    <div>
+                        <div>$23</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <div class="d-flex flex-row gap-3">
+                        <div class="prev_num">1</div>
+                        <div>Peperoni Pie</div>
+                    </div>
+                
+                    <div>
+                        <div>$23</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <div class="d-flex flex-row gap-3">
+                    
+                        <div>Subtotal</div>
+                    </div>
+                
+                    <div>
+                        <div>$52</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <div class="d-flex flex-row gap-3">
+                    
+                        <div>Subtotal</div>
+                    </div>
+                
+                    <div>
+                        <div>$52</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <div class="d-flex flex-row gap-3">
+                    
+                        <div>Total</div>
+                    </div>
+                
+                    <div>
+                        <div class="prev_total">$52</div>
+                    </div>
+                </div>
+               
+               <div class="d-flex flex-column">
+                <div>Review your order</div>
+               <div class="d-flex flex-row">
+                <img src="/pics/Stars.svg" />
+                <button class="sub_rate">Submit</button>
+               </div>
+                 
+               </div>
+              
+            </div>
+            
+            <div class="d-flex flex-row gap-3">
+                <button class="card_btn">
+                    <img src="/pics/Icon copy.svg" />
+                </button>
+                <button class="prev_new_order">Place new order</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="title_modal">Personal information</div>
+    <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img> -->
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="/js/home.js"></script>
+<script>
+    // Update stars based on the selected rating
+    document.getElementById('ratingForm').addEventListener('change', function (event) {
+        const rating = event.target.value;
+        const stars = document.querySelectorAll('.rating i');
+
+        stars.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('text-warning');
+            } else {
+                star.classList.remove('text-warning');
+            }
+        });
+    });
+</script>
 </html>
