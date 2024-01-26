@@ -64,9 +64,13 @@ class UserTable(AbstractUser):
     fav_food = models.ManyToManyField(Food, blank=True)
     fav_rest = models.ManyToManyField(Restaurant, blank=True)
 
-    profile_pic = models.ImageField(null=True, blank=True, upload_to="accounts/static/profile_pictures/")
+    profile_pic = models.ImageField(default='accounts/static/profile_pictures/default_user.png', null=True, blank=True, upload_to="accounts/static/profile_pictures/")
 
     objects = UserTableManager()
 
     def __str__(self):
         return self.name + " : " + self.email
+
+    def reset_pic(self):
+        self.profile_pic = 'accounts/static/profile_pictures/default_user.png'
+        self.save()

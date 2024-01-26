@@ -123,7 +123,7 @@ class UserInfoUpdate(LoginRequiredMixin, View):
             user.name = cleaned_data['name']
             user.phone_number = cleaned_data['phone_number']
             if cleaned_data['profile_pic'] == False:
-                user.profile_pic = None
+                user.reset_pic()
             elif len(form.files) != 0:
                 user.profile_pic = cleaned_data['profile_pic']
             user.save()
