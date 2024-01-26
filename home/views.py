@@ -17,7 +17,7 @@ class HomePage(View):
         if request.user.is_authenticated:
             # rests = Restaurant.objects.all()
             # foods = Food.objects.all()
-            return render(request, template_name="home_page.html")
+            return render(request, template_name="home.html")
         else:
             messages.error(request, 'Please Login to use our site.')
             return redirect('account_login_url')
@@ -28,7 +28,7 @@ class SettingPage(LoginRequiredMixin, View):
     This is the basic class for showing the setting page.
     """
     def get(self, request):
-        return render(request, template_name='Setting_page.html')
+        return render(request, template_name='setting.html')
 
 
 class FavPage(LoginRequiredMixin, View):

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/signup-style.css">
+    <link rel="stylesheet" href="../../statics/css/signup-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Latest compiled JavaScript -->
@@ -14,8 +14,8 @@
     <div class="d-lg-flex flex-lg-row d-md-flex flex-md-column ">
         <div class="d-flex flex-column justify-content-center align-items-center signup-left-container left-responsive">
             <div class="d-flex flex-row justify-content-center align-items-center">
-                <img src="/pics/Icon copy.png">
-                <b><p class="display-6 fw-700 text-light">Nibble</p></b>
+                <img src="../../statics/pics/Icon copy.png">
+                <b><p class="display-6 fw-700 text-light">FoodBood</p></b>
             </div>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center rightmost-container rightmost-scale">
@@ -27,29 +27,29 @@
                         </h2>
                         <p class="grey-txt">Plese create an account to continue using our service</p>
                     </div>
-                    <div class="d-flex flex-column ">
+                    <form method="POST" action="{% url 'account_register_url' %}" class="d-flex flex-column ">
+                        {% csrf_token %}
                         <div class="d-flex flex-row justify-content-between right-width">
-                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="/pics/Profile.png"></div>
-                            <div class="d-flex flex-column p-container "><p>FULL NAME</p><p>Marck Clarke</p><div class="line"></div></div>
+                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="../../statics/pics/Profile.png"></div>
+                            <div class="d-flex flex-column p-container "><p>{{ form.name.label_tag }}</p>{{ form.name }}<div class="line"></div></div>
                         </div>
                         <br>
                         <div class="d-flex flex-row justify-content-between right-width">
-                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="/pics/mail.png"></div>
-                            <div class="d-flex flex-column p-container "><p>Email address</p><p>markclarke@gmail.com</p><div class="line"></div></div>
+                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="../../statics/pics/mail.png"></div>
+                            <div class="d-flex flex-column p-container "><p>{{ form.email.label_tag }}</p>{{ form.email }}<div class="line"></div></div>
                         </div>
                         <br>
                         <div class="d-flex flex-row justify-content-between right-width">
-                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="/pics/Key.png"></div>
-                            <div class="d-flex flex-column p-container "><p>Password</p><p>******</p><div class="line"></div></div>
+                            <div class="d-flex flex-column justify-content-center align-items-center sign-up-icons"  ><img src="../../statics/pics/Key.png"></div>
+                            <div class="d-flex flex-column p-container "><p>{{ form.password.label_tag }}</p>{{ form.password }}<div class="line"></div></div>
                         </div>
-                    </div>
+                        <br><br>
+                        <input type="submit" class="d-flex justify-content-center align-items-center create-acc-btn" value="Create Account">
+                    </form>
                 </div>
-                <br>
-                <br>
+                <br><br>
                 <div class="d-flex flex-column last-div">
-                    <button class="d-flex justify-content-center align-items-center create-acc-btn"><p class="text-light">create an account</p></button>
-                    <br>
-                    <div class="d-flex flex-row justify-content-center"><p>Already have an account?</p><a class="text-danger">sign in</a></div>
+                    <div class="d-flex flex-row justify-content-center"><p>Already have an account? &nbsp;</p><a href="{% url 'account_login_url' %}" class="text-danger">Sign in</a></div>
                 </div>
             </div>
             

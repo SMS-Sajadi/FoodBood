@@ -1,6 +1,6 @@
 # Needed Imports for views
 from django.shortcuts import render, redirect
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpResponse
 from django.contrib import messages
 from .models import UserTable
 from .forms import UserRegisterForm, UserLoginForm, UserPasswordRestEmailForm, UserInfoUpdateForm
@@ -31,11 +31,11 @@ class UserRegister(View):
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
-            return render(request=request, template_name="register.html", context={"form": form}, status=400)
+            return render(request=request, template_name="signup.html", context={"form": form}, status=400)
 
     def get(self, request):
         form = UserRegisterForm()
-        return render(request=request, template_name="register.html", context={"form": form})
+        return render(request=request, template_name="signup.html", context={"form": form})
 
 
 class UserLogin(View):
@@ -59,18 +59,18 @@ class UserLogin(View):
                     messages.error(request, "You Should Verify Your Email First!", "danger")
                 else:
                     messages.error(request, "Check your username and password!", "danger")
-                return render(request=request, template_name="login.html", context={"form": form}, status=404)
+                return render(request=request, template_name="sign-in.html", context={"form": form}, status=404)
             else:
                 return HttpResponseForbidden()
 
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
-            return render(request=request, template_name="login.html", context={"form": form}, status=404)
+            return render(request=request, template_name="sign-in.html", context={"form": form}, status=404)
 
     def get(self, request):
         form = UserLoginForm()
-        return render(request=request, template_name="login.html", context={"form": form})
+        return render(request=request, template_name="sign-in.html", context={"form": form})
 
 
 class UserLogout(View):
@@ -96,19 +96,19 @@ class UserPasswordReset(View):
 
             if user is not None:
                 password_forget_email(request, user, cleaned_data['email'])
+                return HttpResponse(status=200)
             else:
                 messages.error(request, 'Email is incorrect!')
-
-            return redirect('account_login_url')
+                return HttpResponse(status=400)
 
         else:
             for error in list(form.errors.values()):
                 messages.error(request, error)
-            return render(request=request, template_name="Forget_password.html", context={"form": form})
+            return render(request=request, template_name="sign-in-2.html", context={"form": form})
 
     def get(self, request):
         form = UserPasswordRestEmailForm()
-        return render(request=request, template_name="Forget_password.html", context={"form": form})
+        return render(request=request, template_name="sign-in-2.html", context={"form": form})
 
 
 class UserInfoUpdate(LoginRequiredMixin, View):

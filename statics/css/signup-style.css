@@ -2,7 +2,7 @@
 {
     height: 1024px;
     width: 576px;
-    background-image: url(/pics/soup.png) ;
+    background-image: url(../pics/soup.png) ;
     border-top-right-radius: 24px;
     border-bottom-right-radius: 24px;
     
@@ -81,6 +81,7 @@
     height: 64px;
     border: none;
     border-radius: 10px;
+    color: #F7F7F7;
 }
 
 .last-div
