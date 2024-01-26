@@ -6,7 +6,7 @@ from foods.models import Category
 
 class RestaurantDetails(LoginRequiredMixin, DetailView):
     model = Restaurant
-    template_name = 'restaurant_detail_page.html'
+    template_name = 'resturant.html'
     context_object_name = 'rest'
     pk_url_kwarg = 'rest_id'
 

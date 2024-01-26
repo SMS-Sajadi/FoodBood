@@ -7,6 +7,7 @@ from resturants.models import Restaurant
 from foods.models import Food
 from django.contrib import messages
 from .forms import AddressCreateForm
+from accounts.forms import UserInfoUpdateForm
 
 
 class HomePage(View):
@@ -15,9 +16,11 @@ class HomePage(View):
     """
     def get(self, request):
         if request.user.is_authenticated:
-            # rests = Restaurant.objects.all()
-            # foods = Food.objects.all()
-            return render(request, template_name="home.html")
+            context = {
+                'rests': Restaurant.objects.all(),
+                'foods': Food.objects.all()
+            }
+            return render(request, template_name="home.html", context=context)
         else:
             messages.error(request, 'Please Login to use our site.')
             return redirect('account_login_url')
@@ -28,7 +31,11 @@ class SettingPage(LoginRequiredMixin, View):
     This is the basic class for showing the setting page.
     """
     def get(self, request):
-        return render(request, template_name='setting.html')
+        context = {
+            'user_form': UserInfoUpdateForm(instance=request.user),
+            'address_form': AddressCreateForm()
+        }
+        return render(request, template_name='setting.html', context=context)
 
 
 class FavPage(LoginRequiredMixin, View):
@@ -36,16 +43,7 @@ class FavPage(LoginRequiredMixin, View):
     This is the View for handling the Favorates Page
     """
     def get(self, request):
-        user = request.user
-        fav_rest = user.fav_rest.all()
-        fav_food = user.fav_food.all()
-
-        context = {
-            'fav_rest': fav_rest,
-            'fav_food': fav_food,
-        }
-
-        return render(request, template_name='Fav_Page.html', context=context)
+        return render(request, template_name='favorite.html')
 
 
 class FavDelete(LoginRequiredMixin, View):
@@ -133,9 +131,9 @@ class SavedAddressDelete(LoginRequiredMixin, View):
                 return HttpResponseForbidden(request)
         except Address.DoesNotExist:
             messages.error(request, 'Address Not Found!')
-            return redirect('saved_address_url')
+            return redirect('setting_page_url')
         messages.success(request, 'Address Removed Successfully!')
-        return redirect('saved_address_url')
+        return redirect('setting_page_url')
 
 
 class SavedAddressAdd(LoginRequiredMixin, View):
@@ -150,10 +148,10 @@ class SavedAddressAdd(LoginRequiredMixin, View):
             addr.user = user
             addr.save()
             messages.success(request, "The Address Saved Successfully!")
-            return redirect('home_page_url')
+            return redirect('setting_page_url')
 
         messages.error(request, "The Address is invalid!")
-        return redirect('home_page_url')
+        return redirect('setting_page_url')
 
     def get(self, request):
         form = AddressCreateForm()

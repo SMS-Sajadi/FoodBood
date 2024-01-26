@@ -35,3 +35,11 @@ class UserInfoUpdateForm(forms.ModelForm):
     class Meta:
         model = UserTable
         fields = ['name', 'phone_number', 'profile_pic']
+        labels = {
+            'name': 'FULL NAME',
+            'phone_number': 'PHONE NUMBER',
+            'profile_pic': 'imageUpload'
+        }
+        widgets = {
+            'phone_number': forms.TimeInput(attrs={'placeholder': '09132223344'})
+        }
