@@ -118,3 +118,9 @@ font-style: normal;
 font-weight: 700;
 line-height: 32px; /* 160% */
 }
+
+.modal-dimensions
+{
+    height: 454px;
+    width: 400px;
+}

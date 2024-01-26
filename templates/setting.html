@@ -83,7 +83,7 @@
                 <div><img src="/pics/48px copy.png"><img class="cart-container" src="/pics/cart copy.png"></div>
             </div>
         </div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column gap-4">
             <h4>Settings</h4>
             <div class="d-flex flex-column">
                 <h5 class="setting_type">General</h5>
@@ -109,8 +109,79 @@
                         </div>
                         <div class="setting_col_line"></div>
                     </div>
+                    <div class="d-flex flex-column gap-4" >
+                        <div class="d-flex flex-row gap-3 align-items-center justify-content-between"  >
+                            <div class="d-flex flex-row gap-3 align-items-center">
+                                <img src="/pics/Mail.svg" />
+                                <a>Marketing preferences</a>
+                            </div>
+                            <img src="/pics/Chevron-right.png" />
+                            </div>
+                            <div class="setting_col_line"></div>
+                        </div>
             </div>
-
+            <div class="d-flex flex-column">
+                <h5 class="setting_type">Payments</h5>
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-column gap-4" >
+                    <div class="d-flex flex-row gap-3 align-items-center justify-content-between"  >
+                        <div class="d-flex flex-row gap-3 align-items-center">
+                            <img src="/pics/Wallet.svg" />
+                            <a>Payment methods</a>
+                        </div>
+                        <img src="/pics/Chevron-right.png" />
+                        </div>
+                        <div class="setting_col_line"></div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column gap-4" >
+                    <div class="d-flex flex-row gap-3 align-items-center justify-content-between"  data-toggle="modal" data-target="#myModalAddress">
+                        <div class="d-flex flex-row gap-3 align-items-center">
+                            <img src="pics/card.svg" />
+                            <a>My cards</a>
+                        </div>
+                        <img src="/pics/Chevron-right.png" />
+                        </div>
+                        <div class="setting_col_line"></div>
+                    </div>
+                   
+            </div>
+            <div class="d-flex flex-column">
+                <h5 class="setting_type">Other</h5>
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-column gap-4" >
+                    <div class="d-flex flex-row gap-3 align-items-center justify-content-between"  >
+                        <div class="d-flex flex-row gap-3 align-items-center">
+                            <img src="/pics/support.svg" />
+                            <a>Support</a>
+                        </div>
+                        <img src="/pics/Chevron-right.png" />
+                        </div>
+                        <div class="setting_col_line"></div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column gap-4" >
+                    <div class="d-flex flex-row gap-3 align-items-center justify-content-between"  data-toggle="modal" data-target="#myModalAddress">
+                        <div class="d-flex flex-row gap-3 align-items-center">
+                            <img src="pics/Split-order.svg" />
+                            <a>Invite a friend</a>
+                        </div>
+                        <img src="/pics/Chevron-right.png" />
+                        </div>
+                        <div class="setting_col_line"></div>
+                    </div>
+                    <div class="d-flex flex-column gap-4" >
+                        <div class="d-flex flex-row gap-3 align-items-center justify-content-between"  data-toggle="modal" data-target="#myModalAddress">
+                            <div class="d-flex flex-row gap-3 align-items-center">
+                                <img src="pics/Money copy.png" />
+                                <a>discount</a>
+                            </div>
+                            <img src="/pics/Chevron-right.png" />
+                            </div>
+                            <div class="setting_col_line"></div>
+                        </div>
+                   
+            </div>
         
         </div>
     </div>
@@ -131,11 +202,11 @@
                         <input type="file" class="form-control visually-hidden" id="imageUpload" accept="image/*">
                     </div>
                     <div class="title_img">Profile image</div>
-                    <div class="mb-3 d-flex flex-row justify-content-between align-items-center">
+                    <div class="mb-3 d-flex flex-row justify-content-start align-items-center gap-4">
                         <div>
-                            <img id="previewImage" class="mt-2 img-fluid  img_show" alt="Preview Image">
+                            <img src="pics/profile copy.svg" id="previewImage" class="mt-2 img-fluid  img_show" alt="Preview Image">
                         </div>
-                        <div>
+                        <div class="d-flex flex-row gap-2">
                             <button type="button" class="img_btn" onclick="document.getElementById('imageUpload').click();">Upload</button>
                             <button type="button" class="img_btn2" onclick="deleteImage()">Delete</button>
                         </div>
@@ -143,16 +214,38 @@
                     </div>
                     <div class="title_field">Profile details</div>
                     <div>
-                        <div class="d-flex flex-row justify-content-between ">
+                        <div class="d-flex flex-row justify-content-start gap-4 ">
                             <img src="/pics/20px-icon-inside.svg" />
                             <div class="d-flex flex-column">
                                <div>
                                 <label>Full name</label>
                                </div> 
-                                <input />
+                                <input class="form-control" type="text" placeholder="Mark Clarke" />
                             </div>
-                           
                         </div>
+                        <hr>
+                        <div class="d-flex flex-row justify-content-start gap-4 ">
+                            <img src="/pics/20px-icon-inside.png" style=" height: 48px; width: 48px;" />
+                            <div class="d-flex flex-column">
+                               <div>
+                                <label>Email address</label>
+                               </div> 
+                                <input class="form-control" type="email" placeholder="markclarke@gmail.com" />
+                            </div>
+                            <hr>
+                        </div>
+                        <hr>
+                        <div class="d-flex flex-row justify-content-start gap-4 ">
+                            <img src="/pics/20px-icon-inside copy 2.svg" style=" height: 48px; width: 48px;" />
+                            <div class="d-flex flex-column">
+                               <div>
+                                <label>Phone Number</label>
+                               </div> 
+                                <input class="form-control" type="email" placeholder="+1 (234) 5678 900" />
+                            </div>
+                            <hr>
+                        </div>
+                        
                         <div class="input_line"></div>
                     </div>
                     <button class="update_btn">Update profile</button>
@@ -161,18 +254,18 @@
           </div>
         </div>
       </div>
-      <div class="modal" id="myModalAddress">
+      <div class="modal modal-dimensions" id="myModalAddress">
         <div class="modal-dialog">
           <div class="modal-content p-4 myModal">
             <div class="d-flex flex-row justify-content-between w-100">
-                <div class="title_modal">Saved addresses</div>
+                <div class="title_modal"><h2>Saved addresses</h2></div>
                 <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img>
             </div>
-              
+              <br>
             <div>
-                <div class="d-flex flex-row justify-content-center gap-2">
-                    <button type="button" class="img_btn" >Home (2)</button>
-                <button type="button" class="img_btn2" >Work (3)</button>
+                <div class="d-flex flex-row justify-content-start gap-2">
+                    <button type="button" class="img_btn"  style="height:40px ; width:160px ; " >Home (2)</button>
+                    <button type="button" class="img_btn2" style="height:40px ; width:160px ; ">Work (3)</button>
                 </div>
                 
                 <form>
