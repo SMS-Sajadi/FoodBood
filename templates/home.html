@@ -6,6 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/home-style.css">
     <link rel="stylesheet" href="css/css-home-2.css">
+    <link rel="stylesheet" href="css/card.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
 
@@ -234,14 +235,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <img src="/pics/salad.png">
+                        <img src="/pics/salad.png" data-toggle="modal" data-target="#FoodCard">
                         <div  class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">Spicy Na Thai Town</p><p class="free-delivery text-center pt-1 ">Free delivery</p></div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4" data-toggle="modal" data-target="#FoodCard">
                         <img src="/pics/noodles.png">
                         <div  class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">Szechuan Dan Dan Noodles</p><p class="free-delivery text-center pt-1">$1.99 Delivery</p></div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4" data-toggle="modal" data-target="#FoodCard">
                         <img src="/pics/chiken.png">
                         <div class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">Pot Chicken Adobo</p><p class="free-delivery pt-1">Free delivery</p></div>
                     </div>
@@ -254,6 +255,144 @@
     </div>  
     </div> 
 </div>
+
+<div class="modal" id="FoodCard">
+    <div class="Card">
+        <div  class="d-flex flex-row justify-content-between w-100">
+            <div class="card_title">My cart (2 items)</div>
+            <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img>
+        </div>
+        <div class="d-flex flex-row justify-content-between mt-4">
+            <div>
+                <div class="deliver_title">Deliver to </div>
+                <div class="deliver_address">300 Post Street San Francisco, CA </div>
+            </div>
+            <button class="card_btn" data-toggle="modal" data-target="#AddresCard" ><img src="/pics/arrow copy.png"></button>
+        </div>
+        <div>
+            <div>Pizza Hut</div>
+            <div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <img src="/pics/Imaggg.svg" />
+                    <div class="d-flex flex-row">
+                        <div>1</div>
+                        <div>X</div>
+                    </div>
+                    <div>
+                        <div>Peperoni Pie</div>
+                        <div>$23</div>
+                    </div>
+                    <div>
+                        <img src="/pics/20px-icon-inside copy 2.svg" />
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                    <img src="/pics/Imaggg.svg" />
+                    <div class="d-flex flex-row">
+                        <div>1</div>
+                        <div>X</div>
+                    </div>
+                    <div>
+                        <div>Peperoni Pie</div>
+                        <div>$23</div>
+                    </div>
+                    <div>
+                        <img src="/pics/20px-icon-inside copy 2.svg" />
+                    </div>
+                </div>
+                <div class="d-flex flex-row gap-3">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M16 9.14286H9.14286V16H6.85714V9.14286H0V6.85714H6.85714V0H9.14286V6.85714H16V9.14286Z" fill="#503E9D"/>
+                          </svg>
+                    </div>
+                    <div class="more_items_text">
+                        Add more items
+                    </div>
+                    
+                   
+                </div>
+                <div class="d-flex flex-row m-4">
+                    <img src="/pics/Icon-2.svg" />
+                    <div>
+                        <div>Delivery</div>
+                        <div>$0</div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between m-4 w-100 ">
+                    <img src="/pics/Icon.svg" />
+                    <div>
+                        <div>Promo code</div>
+                        <div>HXFWO</div>
+                    </div>
+                    <button data-toggle="modal" data-target="#PromoCodeCard" class="card_btn"><img src="/pics/20px-icon-inside copy 3.svg" alt=""></button>
+                </div>
+              
+            </div>
+            <div class="d-flex flex-row gap-3">
+                <button class="card_btn">
+                    <img src="/pics/Icon copy.svg" />
+                </button>
+                <button class="card_payment">Checkout ($53,00)</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal" id="AddresCard">
+        <div class="w-100 d-flex justify-content-center">
+            <div class="promo_card p-3">
+                <div  class="d-flex flex-row justify-content-between w-100">
+                    <div class="card_title">Delivery address</div>
+                    <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img>
+                </div>
+                <form>
+                   <div class="d-flex flex-column">
+                    <label>Street Name</label>
+                    <input placeholder="300 Post Street" />
+                    <hr />
+                   </div>
+                   <div class="d-flex flex-column">
+                    <label>City</label>
+                    <input placeholder="San Francisco" />
+                    <hr />
+                   </div>
+                   <div class="d-flex flex-column">
+                    <label>State</label>
+                    <input placeholder="California" />
+                    <hr />
+                   </div>
+                   <div class="d-flex flex-column">
+                    <label>ZIP Code</label>
+                    <input placeholder="12345" />
+                    <hr />
+                   </div>
+                    <button class="promo_btn">Confirm</button>
+                </form>
+              </div>
+        </div>
+       
+      </div>
+    <div class="modal" id="PromoCodeCard">
+        <div class="w-100 d-flex justify-content-center">
+            <div class="promo_card p-3">
+                <div  class="d-flex flex-row justify-content-between w-100">
+                    <div class="card_title">Enter promo code</div>
+                    <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img>
+                </div>
+                <form>
+                    <input class="promo_input" placeholder="HXFWO"/>
+                    <button class="promo_btn">Confirm</button>
+                </form>
+              </div>
+        </div>
+       
+      </div>
+    <!-- <div class="title_modal">Personal information</div>
+    <img width="24" height="24" src="/pics/Close.png"  data-dismiss="modal"></img> -->
+  </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="/js/home.js"></script>
 </html>
