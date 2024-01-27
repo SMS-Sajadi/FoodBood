@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="d-flex flex-row">
-    <div class="d-flex flex-column justify-content-between nibble-container">
+    <div class="d-flex flex-column justify-content-between nibble-container" style="min-height: 100vh;">
         <div class="d-flex flex-column justify-content-start ">
             <div class="d-flex flex-row ms-4 mt-3 align-items-center ">
                 <img src="{% static 'pics/Icon copy.png' %}" alt="burger">
@@ -133,7 +133,7 @@
                                 <div>{{ item.price }}</div>
                             </div>
                             <div>
-                                <img src="../../static/pics/20px-icon-inside copy 2.svg"/>
+                                <a href="{% url 'order_delete_item_url' item.id %}"><img src="../../static/pics/20px-icon-inside copy 2.svg"/></a>
                             </div>
                         </div>
                         {% endfor %}

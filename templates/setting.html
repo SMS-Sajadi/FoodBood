@@ -189,17 +189,18 @@
                     <button type="button" class="img_btn2" style="height:40px ; width:160px ; ">Work (3)</button>
                 </div>
                 
-                <form method="POST" action="{% url 'saved_address_add_url' %}">
+                <form method="POST" action="{% url 'saved_address_add_url' %}" class="d-flex flex-column gap-3">
                     {% csrf_token %}
                     <div class="title_field">Address List:</div>
                     <div>
                         {% for addr in user.fav_addr.all %}
-                            <div class="d-flex flex-row justify-content-between ">
+                            <div class="d-flex flex-row justify-content-start align-items-center gap-4 ">
                             <img src="../static/pics/20px-icon-inside copy.svg">
                             <div class="d-flex flex-column">
                                 {{ addr.address }}
                             </div>
-                            <a href="{% url 'saved_address_delete_url' addr.id %}"><img width="24" height="24" src="../static/pics/Chevron-right.png"></a>
+                            <a href="{% url 'saved_address_delete_url' addr.id %}">
+                            <img width="24" height="24" src="../static/pics/Chevron-right.png" style="height: 12px; width: 12px;"></a>
                             <br>
                         {% endfor %}
                         <br>

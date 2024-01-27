@@ -21,7 +21,7 @@
                     <div class="row">
                         {% for food in user.fav_food.all %}
                             <div class="col-4">
-                            <img src="{{ food.food_pic.url }}">
+                                <a href="{% url 'order_add_one_item_url' food.id %}"><img src="{{ food.food_pic.url }}"></a>
                             <div class="d-flex flex-row align-items-center justify-content-between ms-3">
                                 <div class="d-flex flex-row grid-img"><img src="../../static/pics/Star.png"><p class="bx-font">
                                     {{ food.rating }} ({{ food.num_rating }})</p></div>

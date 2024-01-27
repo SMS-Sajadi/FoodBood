@@ -102,7 +102,7 @@
                 <div class="row">
                     {% for food in foods %}
                     <div class="col-4">
-                        <img src="{{ food.food_pic.url }}">
+                        <a href="{% url 'order_add_one_item_url' food.id %}"><img src="{{ food.food_pic.url }}"></a>
                         <div  class="d-flex flex-row align-items-center justify-content-between mt-3"><p style="font-size: 16px; font-weight: 700;">{{ food.name }}</p><p class="free-delivery text-center pt-1 ">Free delivery</p></div>
                     </div>
                     {% endfor %}

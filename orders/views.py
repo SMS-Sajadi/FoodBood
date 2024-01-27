@@ -91,6 +91,38 @@ class OrderItemAdd(LoginRequiredMixin, View):
         return render(request, 'Temp_Promo_add.html', {'form': form})
 
 
+class OrderItemAddOne(LoginRequiredMixin, View):
+    """
+    In this class we handle the item adding one food for the carts
+    """
+    def get(self, request, food_id):
+        user = request.user
+        try:
+            food = Food.objects.get(id=food_id)
+        except Exception:
+            messages.error(request, "The Food Was not Found!")
+            raise Http404(request)
+
+        rest = food.restaurant
+
+        order, created = rest.orders.get_or_create(user=user, status='1')
+
+        num = 1
+
+        if created:
+            order_item = OrderItem(order=order, food=food, num=num)
+        else:
+            order_item, order_item_created = order.items.get_or_create(food=food)
+            if not order_item_created:
+                order_item.num += num
+            else:
+                order_item.num = num
+
+        order_item.save()
+        messages.success(request, "Item Added Successfully!")
+        return redirect('home_page_url')
+
+
 class OrderItemDelete(LoginRequiredMixin, View):
     """
     In this class we handle the item deleting the items from carts
