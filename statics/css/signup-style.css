@@ -21,6 +21,7 @@
         height: 388px;
         width: auto;
     }
+    
 }
 
 
@@ -94,3 +95,45 @@
     height: 212px;
 }
 
+
+
+.res_div{
+    position: relative;
+    width: 100%;
+}
+.res_img{
+    border-radius: 10px;
+    width: 100%;
+}
+.main_pic{
+    position: absolute;
+    top: 150px;
+    
+}
+@media only screen and (max-width: 768px) 
+{
+    .left-responsive
+    {
+        background-repeat: no-repeat;
+        background-size:auto;
+        border-radius: 0px 0px 24px 24px;
+        /* width: 768px; */
+        height: 388px;
+        width: auto;
+    }
+    .rightmost-container{
+        width: 100%;
+    }   
+    .rightmost-scale {
+        width: 100%;
+    }
+    .p-container {
+        width: 100%;
+    }
+    .last-div {
+        width: 100%;
+    }
+    .right-width{
+        width: 100%;
+    }
+}
