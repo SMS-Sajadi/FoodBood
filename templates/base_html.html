@@ -112,14 +112,14 @@
                 <div class="d-flex flex-row justify-content-between mt-4">
                     <div>
                         <div class="deliver_title">Deliver to</div>
-                        <div class="deliver_address">300 Post Street San Francisco, CA</div>
+                        <div class="deliver_address">{{ user.order_address }}</div>
                     </div>
                     <button class="card_btn" data-toggle="modal" data-target="#AddresCard"><img
                             src="../../static/pics/arrow copy.png"></button>
                 </div>
                 <div>
                     {% for order in user.get_user_carts %}
-                    <div>{{ order.rest.name}}</div>
+                    <div>{{ order.restaurant.name}}</div>
                     <div>
                         {% for item in order.items.all %}
                         <div class="d-flex flex-row justify-content-between align-items-center mt-4">
@@ -186,28 +186,13 @@
                             <div class="card_title">Delivery address</div>
                             <img width="24" height="24" src="../../static/pics/Close.png" data-dismiss="modal">
                         </div>
-                        <form>
+                        <form method="POST" action="{% url 'order_address_add_url' %}">
+                            {% csrf_token %}
                             <div class="d-flex flex-column">
-                                <label>Street Name</label>
-                                <input placeholder="300 Post Street"/>
-                                <hr/>
+                                <label for="ADDress">Address</label>
+                                <input type="text" name="address" id="ADDress">
+                            <input type="submit" class="promo_btn" value="Confirm">
                             </div>
-                            <div class="d-flex flex-column">
-                                <label>City</label>
-                                <input placeholder="San Francisco"/>
-                                <hr/>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <label>State</label>
-                                <input placeholder="California"/>
-                                <hr/>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <label>ZIP Code</label>
-                                <input placeholder="12345"/>
-                                <hr/>
-                            </div>
-                            <button class="promo_btn">Confirm</button>
                         </form>
                     </div>
                 </div>

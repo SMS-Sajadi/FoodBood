@@ -6,7 +6,7 @@ from .models import Address
 from resturants.models import Restaurant
 from foods.models import Food
 from django.contrib import messages
-from .forms import AddressCreateForm
+from .forms import AddressCreateForm, AddressForm
 from accounts.forms import UserInfoUpdateForm
 
 
@@ -156,4 +156,21 @@ class SavedAddressAdd(LoginRequiredMixin, View):
     def get(self, request):
         form = AddressCreateForm()
         return render(request, template_name='Temp_Create_Address.html', context={'form': form})
+
+
+class OrderAddressAdd(LoginRequiredMixin, View):
+    """
+    This is a class view for managing the user order address.
+    """
+    def post(self, request):
+        user = request.user
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            user.order_address = form.cleaned_data['address']
+            user.save()
+            messages.success(request, "The Address Saved Successfully!")
+            return redirect('home_page_url')
+
+        messages.error(request, "The Address is invalid!")
+        return redirect('home_page_url')
 

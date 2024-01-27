@@ -11,4 +11,5 @@ urlpatterns = [
     path('saved_address/', views.SavedAddress.as_view(), name='saved_address_url'),
     path('saved_address/delete/<item_id>/', views.SavedAddressDelete.as_view(), name='saved_address_delete_url'),
     path('saved_address/add/', views.SavedAddressAdd.as_view(), name='saved_address_add_url'),
+    path('order_address_add/', views.OrderAddressAdd.as_view(), name='order_address_add_url'),
 ]

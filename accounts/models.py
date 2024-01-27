@@ -65,6 +65,7 @@ class UserTable(AbstractUser):
     fav_rest = models.ManyToManyField(Restaurant, blank=True)
 
     profile_pic = models.ImageField(default='accounts/static/profile_pictures/default_user.png', null=True, blank=True, upload_to="accounts/static/profile_pictures/")
+    order_address = models.CharField(max_length=256, default='Isfahan')
 
     objects = UserTableManager()
 
