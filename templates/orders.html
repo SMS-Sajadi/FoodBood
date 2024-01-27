@@ -1,280 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>order</title>
-    <link rel="stylesheet" href="css/home-style.css">
-    <link rel="stylesheet" href="css/css-home-2.css">
-    <link rel="stylesheet" href="/css/orders.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+{% extends 'base_html.html' %}
+{% load static %}
 
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="d-flex flex-row">
-        <div class="d-flex flex-column justify-content-between nibble-container">
-            <div class="d-flex flex-column justify-content-start ">
-                <div class="d-flex flex-row ms-4 mt-3 align-items-center ">
-                    <img src="/pics/Icon copy.png" alt="burger">
-                    <p class="ms-3 mt-3">
-                        Nibble
-                    </p>
-                </div>
-                <div class="ms-4">
-                    <div id="my_btn" class="mt-4 left-menu">
-                        <img src="/pics/Home.png">
-                        <a class="ms-3 link-adjustment" href="#home">Home</a>
-                    </div>
-                    <div id="my_btn2" class="mt-4 left-menu">
-                        <img src="/pics/Feed copy.png">
-                        <a class="ms-3 link-adjustment" href="#about">Explore</a>
-                    </div>
-                    <div id="my_btn3" class="mt-4 left-menu">
-                        <img src="/pics/save copy.png">
-                        <a class="ms-3 link-adjustment" href="#services">Favourites</a>
-                    </div>
-                    <div id="my_btn4" class="mt-4 left-menu" onclick="goTo_orders();">
-                        <img src="/pics/Document copy.png">
-                        <a class="ms-3 link-adjustment" href="#contact">orders</a>
-                    </div>
-                    <div id="my_btn5" class="mt-4 left-menu">
-                        <img src="/pics/Settings copy.png">
-                        <a class="ms-3 link-adjustment" href="#contact">settings</a>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="d-flex flex-row justify-content-between align-items-center clarke-div">
-                <img class="mark-clarke" src="/pics/Image copy.png">
-                <p>
-                    <b>Mark Clarke</b>
-                    <br>
-                    markclarke@gmail.com
-                </p>
-                <img class="options" src="/pics/Options copy.png">
-            </div>
-        </div>
-    <div class="class=d-flex flex-column justify-content-center align-items-center  rightmost-div" style="padding: 32px;">
-        <div class="col-lg-6 d-none d-lg-block" style="width: 100%;">
-        <div class="d-flex flex-row navbar align-items-center justify-content-between ">
-            <div class="d-flex flex-row">
-                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="/pics/Location copy.png"><p class="fs-one ms-3 m-0 text-center text-nowrap">San Francisco, California</p><img class="arrow-size ms-3" src="/pics/Options copy.png"> </div>
-                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="/pics/Shopping-bag copy.png"> <p class="fs-one m-0 ms-3 text-center text-nowrap">Pick up</p><img class="arrow-size ms-3" src="/pics/Options copy.png"> </div>
-                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="/pics/Icon copy 2.png"><p p class="fs-one ms-3 m-0 text-center text-nowrap">best deals</p><img class="arrow-size ms-3 " src="/pics/Options copy.png"> </div>
-               
-            </div>
-            <div class="d-flex search-margin">
-                <div class="relative-search">
-                    <img class="search-icon" src="/pics/Search.png">
-                    <input type="search" class="search-container nav-margin" id="search" name="search" placeholder="search for anything...">
-                </div>
-            </div>
-            <div class=" d-flex justify-content-between "><img src="/pics/48px copy.png"><img class="cart-container" src="/pics/cart copy.png"> </div>
-    
-        </div>
-        </div>
-        <div class="col-12 d-sm-block d-lg-none">
-            <div class=" d-flex justify-content-between ">
-                <div>
-                </div>
-                <div><img src="/pics/48px copy.png"><img class="cart-container" src="/pics/cart copy.png"></div>
-            </div>
-        </div>
-        <div class="d-flex flex-column">
-            <div class="d-flex flex-column"  style="margin-top: 48px;">
-                <div class="d-flex flex-row justify-content-between">
-                    <h5>Upcoming orders</h5>
-                </div>
-                <div class="container">
-                    <div  class="row">
+{% block title %}Orders{% endblock %}
+{% block css_js_ref %}
+    <link rel="stylesheet" href="{% static 'css/css-home-2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
 
-                        <div class="col-sm-4 d-flex flex-row justify-content-between order_cart" style="overflow-x: hidden;">
-                            <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <p class="order_title">Burger King</p>
-                                    <p class="order_ref">#1DF90E</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100" >
-                                    <div class="d-flex flex-row gap-3">
-                                        <img src="/./pics/Clock.svg" />
-                                        <div>
-                                            <p class="order_state">Estimated arrival</p>
-                                            <p class="order_time">35 min</p>
-                                        </div>
-                                    </div>
-                                   
-                                    <button class="order_btn">Track</button>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100" style="gap: 4px;">
-                                    <div class="first_div">
-                                        <div class="subfirst_div"></div>
-                                    </div>
-                                    <div class="second_div">
-                                        <div class="subsecond_div"></div>
-                                    </div>
-                                    <div class="third_div">
-                                        <div class="subthird_div"></div>
-                                    </div>
-                                </div>
-                            </div>
-                          
-                           
-                        </div>
-        
-                        <div class="col-sm-4 d-flex flex-row justify-content-between order_cart" style="overflow-x: hidden;">
-                            <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <p class="order_title">Burger King</p>
-                                    <p class="order_ref">#1DF90E</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <div class="d-flex flex-row gap-3">
-                                        <img src="/./pics/Clock.svg" />
-                                        <div>
-                                            <p class="order_state">Estimated arrival</p>
-                                            <p class="order_time">35 min</p>
-                                        </div>
-                                    </div>
-                                   
-                                    <button class="order_btn">Track</button>
-                                </div>
-                            </div>
-                          
-                           
-                        </div>
-                     
-                    </div>
-                </div>
-        
+{% block left_panel %}
+{% endblock %}
+
+{% block main %}
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-column" style="margin-top: 48px;">
+            <div class="d-flex flex-row justify-content-between">
+                <h5>Upcoming orders</h5>
             </div>
-            <div  style="margin-top: 48px;">
-                <div class="d-flex flex-row justify-content-between">
-                    <h5>Previous orders</h5>
-                 
+            <div class="container">
+                <div class="row">
+                    {% for order in orders %}
+                        {% if order.status == '2' %}
+                            <div class="col-sm-4 d-flex flex-row justify-content-between order_cart"
+                                 style="overflow-x: hidden;">
+                                <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
+                                    <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                                        <p class="order_title">{{ order.restaurant.name }}</p>
+                                        <p class="order_ref">#{{ order.id }}</p>
+                                    </div>
+                                    <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                                        <div class="d-flex flex-row gap-3">
+                                            <img src="../static/pics/Clock.svg"/>
+                                            <div>
+                                                <p class="order_state">Estimated arrival</p>
+                                                <p class="order_time">35 min</p>
+                                            </div>
+                                        </div>
+
+                                        <button class="order_btn">Track</button>
+                                    </div>
+                                    <div class="d-flex flex-row justify-content-between align-items-center w-100"
+                                         style="gap: 4px;">
+                                        <div class="first_div">
+                                            <div class="subfirst_div"></div>
+                                        </div>
+                                        <div class="second_div">
+                                            <div class="subsecond_div"></div>
+                                        </div>
+                                        <div class="third_div">
+                                            <div class="subthird_div"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-                <div class="container">
-                    <div class="row mt-4">
-                        <div class="col-sm-4 d-flex flex-row justify-content-between prev_order_cart" style="overflow-x: hidden;">
-                            <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <p class="order_title">Burger King</p>
-                                    <p class="prev_order_state s1">Completed</p>
-                                    <p class="prev_order_state s2">Canceled</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <div class="d-flex flex-row gap-3 justify-content-start w-75">
-                                        <div class="d-flex flex-row justify-content-between " >
-                                            <img class="prev_img" src="/pics/Calendar.svg" />
-                                            <p class="prev_order_date ">September 16, 2020</p>
-                                           </div>
-                                           <div class="d-flex flex-row justify-content-between ">
-                                            <img class="prev_img" src="/pics/Clock.svg" />
-                                            <p class="prev_order_time  ">11:54 PM</p>
-                                        </div>
-                                    </div>
-                                   
-                                    
-                                </div>
-                                <div>
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div class="prev_order_num">1</div>
-                                        <p class="prev_order_name">Delicious Cheese Pie</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between ">
-                                    <button class="prev_datails_btn">Details
-                                    </button>
-                                    <button class="prev_help_btn"> Get help</button>
-                                </div>
-                            </div>
-                          
-                           
-                        </div>
-                        <div class="col-sm-4 d-flex flex-row justify-content-between prev_order_cart" style="overflow-x: hidden;">
-                            <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <p class="order_title">Burger King</p>
-                                    <p class="prev_order_state s1">Completed</p>
-                                    <p class="prev_order_state s2">Canceled</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <div class="d-flex flex-row gap-3 justify-content-start w-75">
-                                        <div class="d-flex flex-row justify-content-between " >
-                                            <img class="prev_img" src="/pics/Calendar.svg" />
-                                            <p class="prev_order_date ">September 16, 2020</p>
-                                           </div>
-                                           <div class="d-flex flex-row justify-content-between ">
-                                            <img class="prev_img" src="/pics/Clock.svg" />
-                                            <p class="prev_order_time  ">11:54 PM</p>
-                                        </div>
-                                    </div>
-                                   
-                                    
-                                </div>
-                                <div>
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div class="prev_order_num">1</div>
-                                        <p class="prev_order_name">Delicious Cheese Pie</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between ">
-                                    <button class="prev_datails_btn">Details
-                                    </button>
-                                    <button class="prev_help_btn"> Get help</button>
-                                </div>
-                            </div>
-                          
-                           
-                        </div>
-                        <div class="col-sm-4 d-flex flex-row justify-content-between prev_order_cart" style="overflow-x: hidden;">
-                            <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <p class="order_title">Burger King</p>
-                                    <p class="prev_order_state s1">Completed</p>
-                                    <p class="prev_order_state s2">Canceled</p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                                    <div class="d-flex flex-row gap-3 justify-content-start w-75">
-                                        <div class="d-flex flex-row justify-content-between " >
-                                            <img class="prev_img" src="/pics/Calendar.svg" />
-                                            <p class="prev_order_date ">September 16, 2020</p>
-                                           </div>
-                                           <div class="d-flex flex-row justify-content-between ">
-                                            <img class="prev_img" src="/pics/Clock.svg" />
-                                            <p class="prev_order_time  ">11:54 PM</p>
-                                        </div>
-                                    </div>
-                                   
-                                    
-                                </div>
-                                <div>
-                                    <div class="d-flex flex-row justify-content-between align-items-center">
-                                        <div class="prev_order_num">1</div>
-                                        <p class="prev_order_name">Delicious Cheese Pie</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-row justify-content-between ">
-                                    <button class="prev_datails_btn">Details
-                                    </button>
-                                    <button class="prev_help_btn"> Get help</button>
-                                </div>
-                            </div>
-                          
-                           
-                        </div>
-                     
-                    </div>
+
             </div>
-          
-        </div>
         </div>
     </div>
-    </div>  
-    </div> 
-</div>
-</body>
-<script src="/js/home.js"></script>
-</html>
+    <div style="margin-top: 48px;">
+        <div class="d-flex flex-row justify-content-between">
+            <h5>Previous orders</h5>
+
+        </div>
+        <div class="container">
+            <div class="row mt-4">
+                {% for order in orders %}
+                    {% if order.status != '1' and order.status != '2' %}
+                        <div class="col-sm-4 d-flex flex-row justify-content-between prev_order_cart"
+                             style="overflow-x: hidden;">
+                            <div class="d-flex flex-column justify-content-center align-items-start w-100 p-3">
+                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                                    <p class="order_title">{{ order.restaurant.name }}</p>
+                                    <p class="order_ref">#{{ order.id }}</p>
+                                    {% if order.status == '3' %}
+                                    <p class="prev_order_state s1">Completed</p>
+                                    {% else %}
+                                    <p class="prev_order_state s2">Canceled</p>
+                                    {% endif %}
+                                </div>
+                                <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                                    <div class="d-flex flex-row gap-3 justify-content-start w-75">
+                                        <div class="d-flex flex-row justify-content-between ">
+                                            <img class="prev_img" src="../static/pics/Calendar.svg"/>
+                                            <p class="prev_order_date ">{{ order.time.date }}</p>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-between ">
+                                            <img class="prev_img" src="../static/pics/Clock.svg"/>
+                                            <p class="prev_order_time  ">{{ order.time.time }}</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div>
+                                    {% for item in order.items.all %}
+                                        <div class="d-flex flex-row justify-content-between align-items-center">
+                                            <div class="prev_order_num">{{ item.num }}</div>
+                                            <p class="prev_order_name">{{ item.food.name }}</p>
+                                            <p class="prev_order_name">${{ item.price }}</p>
+                                        </div>
+                                    {% endfor %}
+                                <p class="prev_order_name">Total Price: ${{ order.price }}</p>
+                                <p class="prev_order_name">Final Price: ${{ order.final_price }}</p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-between ">
+                                    <button class="prev_datails_btn">Details
+                                    </button>
+                                    <button class="prev_help_btn"> Get help</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block bottom_of_body %}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

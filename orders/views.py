@@ -17,7 +17,7 @@ class OrdersList(LoginRequiredMixin, View):
         user = request.user
         orders = user.orders.all()
 
-        return render(request, template_name='Orders_list_template.html', context={'orders': orders})
+        return render(request, template_name='orders.html', context={'orders': orders})
 
 
 class OrdersAddPromo(LoginRequiredMixin, View):
