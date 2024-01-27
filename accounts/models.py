@@ -74,3 +74,8 @@ class UserTable(AbstractUser):
     def reset_pic(self):
         self.profile_pic = 'accounts/static/profile_pictures/default_user.png'
         self.save()
+
+    def get_user_carts(self):
+        orders = self.orders.filter(status='1')
+        return orders
+

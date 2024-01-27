@@ -40,7 +40,7 @@ class OrdersAddPromo(LoginRequiredMixin, View):
         else:
             messages.error(request, 'Promo Code is Invalid!')
 
-        return redirect('orders_list_url')
+        return redirect('home_page_url')
 
     # A Temporary get function for testing
     def get(self, request, order_id):

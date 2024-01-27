@@ -5,89 +5,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'pics/Icon copy.png' %}">
     <link rel="stylesheet" href="{% static 'css/home-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
     {% block css_js_ref %}
     {% endblock %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="d-flex flex-row">
-        <div class="d-flex flex-column justify-content-between nibble-container">
-            <div class="d-flex flex-column justify-content-start ">
-                <div class="d-flex flex-row ms-4 mt-3 align-items-center ">
-                    <img src="{% static 'pics/Icon copy.png' %}" alt="burger">
-                    <p class="ms-3 mt-3">
-                        FoodBood
-                    </p>
-                </div>
-                <div class="ms-4">
-                    <div id="my_btn" class="mt-4 left-menu">
-                        <img src="../../static/pics/Home.png">
-                        <a class="ms-3 link-adjustment" href="{% url 'home_page_url' %}">Home</a>
-                    </div>
-                    <div id="my_btn2" class="mt-4 left-menu">
-                        <img src="../../static/pics/Feed copy.png">
-                        <a class="ms-3 link-adjustment" href="{% url 'home_page_url' %}">Explore</a>
-                    </div>
-                    <div id="my_btn3" class="mt-4 left-menu">
-                        <img src="../../static/pics/save copy.png">
-                        <a class="ms-3 link-adjustment" href="{% url 'fav_page_url' %}">Favourites</a>
-                    </div>
-                    <div id="my_btn4" class="mt-4 left-menu" onclick="goTo_orders();">
-                        <img src="../../static/pics/Document copy.png">
-                        <a class="ms-3 link-adjustment" href="{% url 'orders_list_url' %}">orders</a>
-                    </div>
-                    <div id="my_btn5" class="mt-4 left-menu">
-                        <img src="../../static/pics/Settings copy.png">
-                        <a class="ms-3 link-adjustment" href="{% url 'setting_page_url' %}">settings</a>
-                    </div>
-
-                </div>
-            </div>
-            <div class="d-flex flex-row justify-content-between align-items-center clarke-div">
-                <img class="mark-clarke" src="{{ user.profile_pic.url }}">
-                <p>
-                    <b>{{ user.name }}</b>
-                    <br>
-                    {{ user.email }}
+<div class="d-flex flex-row">
+    <div class="d-flex flex-column justify-content-between nibble-container">
+        <div class="d-flex flex-column justify-content-start ">
+            <div class="d-flex flex-row ms-4 mt-3 align-items-center ">
+                <img src="{% static 'pics/Icon copy.png' %}" alt="burger">
+                <p class="ms-3 mt-3">
+                    FoodBood
                 </p>
-                <img class="options" src="../../static/pics/Options copy.png">
             </div>
-        </div>
-           <div class="class=d-flex flex-column justify-content-center align-items-center  rightmost-div" style="padding: 32px;">
-        <div class="col-lg-6 d-none d-lg-block" style="width: 100%;">
-        <div class="d-flex flex-row navbar align-items-center justify-content-between ">
-            <div class="d-flex flex-row">
-                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="../../static/pics/Location copy.png"><p class="fs-one ms-3 m-0 text-center text-nowrap">San Francisco, California</p><img class="arrow-size ms-3" src="../../static/pics/Options copy.png"> </div>
-                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="../../static/pics/Shopping-bag copy.png"> <p class="fs-one m-0 ms-3 text-center text-nowrap">Pick up</p><img class="arrow-size ms-3" src="../../static/pics/Options copy.png"> </div>
-                <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size" src="../../static/pics/Icon copy 2.png"><p p class="fs-one ms-3 m-0 text-center text-nowrap">best deals</p><img class="arrow-size ms-3 " src="../../static/pics/Options copy.png"> </div>
-
-            </div>
-            <div class="d-flex search-margin">
-                <div class="relative-search">
-                    <img class="search-icon" src="../../static/pics/Search.png">
-                    <input type="search" class="search-container nav-margin" id="search" name="search" placeholder="search for anything...">
+            <div class="ms-4">
+                <div id="my_btn" class="mt-4 left-menu">
+                    <img src="../../static/pics/Home.png">
+                    <a class="ms-3 link-adjustment" href="{% url 'home_page_url' %}">Home</a>
                 </div>
-            </div>
-            <div class=" d-flex justify-content-between "><img src="../../static/pics/48px copy.png"><img class="cart-container" src="../../static/pics/cart copy.png"> </div>
+                <div id="my_btn2" class="mt-4 left-menu">
+                    <img src="../../static/pics/Feed copy.png">
+                    <a class="ms-3 link-adjustment" href="{% url 'home_page_url' %}">Explore</a>
+                </div>
+                <div id="my_btn3" class="mt-4 left-menu">
+                    <img src="../../static/pics/save copy.png">
+                    <a class="ms-3 link-adjustment" href="{% url 'fav_page_url' %}">Favourites</a>
+                </div>
+                <div id="my_btn4" class="mt-4 left-menu" onclick="goTo_orders();">
+                    <img src="../../static/pics/Document copy.png">
+                    <a class="ms-3 link-adjustment" href="{% url 'orders_list_url' %}">orders</a>
+                </div>
+                <div id="my_btn5" class="mt-4 left-menu">
+                    <img src="../../static/pics/Settings copy.png">
+                    <a class="ms-3 link-adjustment" href="{% url 'setting_page_url' %}">settings</a>
+                </div>
 
+            </div>
         </div>
+        <div class="d-flex flex-row justify-content-between align-items-center clarke-div">
+            <img class="mark-clarke" src="{{ user.profile_pic.url }}">
+            <p>
+                <b>{{ user.name }}</b>
+                <br>
+                {{ user.email }}
+            </p>
+            <img class="options" src="../../static/pics/Options copy.png">
+        </div>
+    </div>
+    <div class="class=d-flex flex-column justify-content-center align-items-center  rightmost-div"
+         style="padding: 32px;">
+        <div class="col-lg-6 d-none d-lg-block" style="width: 100%;">
+            <div class="d-flex flex-row navbar align-items-center justify-content-between ">
+                <div class="d-flex flex-row">
+                    <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size"
+                                                                                    src="../../static/pics/Location copy.png">
+                        <p class="fs-one ms-3 m-0 text-center text-nowrap">San Francisco, California</p><img
+                                class="arrow-size ms-3" src="../../static/pics/Options copy.png"></div>
+                    <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size"
+                                                                                    src="../../static/pics/Shopping-bag copy.png">
+                        <p class="fs-one m-0 ms-3 text-center text-nowrap">Pick up</p><img class="arrow-size ms-3"
+                                                                                           src="../../static/pics/Options copy.png">
+                    </div>
+                    <div class="d-flex flex-row align-items-center nav-margin"><img class="img-size"
+                                                                                    src="../../static/pics/Icon copy 2.png">
+                        <p p class="fs-one ms-3 m-0 text-center text-nowrap">best deals</p><img class="arrow-size ms-3 "
+                                                                                                src="../../static/pics/Options copy.png">
+                    </div>
+
+                </div>
+                <div class="d-flex search-margin">
+                    <div class="relative-search">
+                        <img class="search-icon" src="../../static/pics/Search.png">
+                        <input type="search" class="search-container nav-margin" id="search" name="search"
+                               placeholder="search for anything...">
+                    </div>
+                </div>
+                <div class=" d-flex justify-content-between "><img src="../../static/pics/48px copy.png">
+                    <img data-toggle="modal" data-target="#FoodCard" class="cart-container" src="../../static/pics/cart copy.png"></div>
+
+            </div>
         </div>
         <div class="col-12 d-sm-block d-lg-none">
             <div class=" d-flex justify-content-between ">
                 <div>
                 </div>
-                <div><img src="/pics/48px copy.png"><img class="cart-container" src="../../static/pics/cart copy.png"></div>
+                <div><img src="../../static/pics/48px copy.png"><img class="cart-container" src="../../static/pics/cart copy.png">
+                </div>
             </div>
         </div>
         {% block main %}
         {% endblock %}
+        <div class="modal" id="FoodCard">
+            <div class="Card">
+                <div class="d-flex flex-row justify-content-between w-100">
+                    <div class="card_title">My cart ({{ user.get_user_carts|length }} Carts)</div>
+                    <img width="24" height="24" src="../../static/pics/Close.png" data-dismiss="modal">
+                </div>
+                <div class="d-flex flex-row justify-content-between mt-4">
+                    <div>
+                        <div class="deliver_title">Deliver to</div>
+                        <div class="deliver_address">300 Post Street San Francisco, CA</div>
+                    </div>
+                    <button class="card_btn" data-toggle="modal" data-target="#AddresCard"><img
+                            src="../../static/pics/arrow copy.png"></button>
+                </div>
+                <div>
+                    {% for order in user.get_user_carts %}
+                    <div>{{ order.rest.name}}</div>
+                    <div>
+                        {% for item in order.items.all %}
+                        <div class="d-flex flex-row justify-content-between align-items-center mt-4">
+                            <img src="{{ item.food.food_pic.url }}">
+                            <div class="d-flex flex-row">
+                                <div>{{ item.num }}</div>
+                                <div>X</div>
+                            </div>
+                            <div>
+                                <div>{{ item.food.name }}</div>
+                                <div>{{ item.price }}</div>
+                            </div>
+                            <div>
+                                <img src="../../static/pics/20px-icon-inside copy 2.svg"/>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="d-flex flex-row gap-3">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                                     fill="none">
+                                    <path d="M16 9.14286H9.14286V16H6.85714V9.14286H0V6.85714H6.85714V0H9.14286V6.85714H16V9.14286Z"
+                                          fill="#503E9D"/>
+                                </svg>
+                            </div>
+                            <br>
+                            <div class="more_items_text">
+                                Add more items
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row m-4">
+                            <img src="../../static/pics/Icon-2.svg"/>
+                            <div>
+                                <div>Delivery </div>
+                                <div> $0</div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between m-4 w-100 ">
+                            <form method="POST" action="{% url 'order_add_promo_url' order.id %}">
+                                {% csrf_token %}
+                            <img src="../../static/pics/Icon.svg"/>
+                            <div>
+                                <label for="id_promo_code">Promo code</label>
+                                <input name="promo_code" id="id_promo_code" type="text" class="promo_input" placeholder="{{ order.promo_code }}">
+                            </div>
+                            <input type="image" class="card_btn" src="../../static/pics/20px-icon-inside copy 3.svg" alt="">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row gap-3">
+                        <button class="card_btn">
+                            <img src="../../static/pics/Icon copy.svg"/>
+                        </button>
+                        <a href="{% url 'order_checkout_url' order.id %}"><button class="card_payment">Checkout (${{ order.final_price }})</button></a>
+                    </div>
+                {% endfor %}
+                </div>
+
+            </div>
+            <div class="modal" id="AddresCard">
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="promo_card p-3">
+                        <div class="d-flex flex-row justify-content-between w-100">
+                            <div class="card_title">Delivery address</div>
+                            <img width="24" height="24" src="../../static/pics/Close.png" data-dismiss="modal">
+                        </div>
+                        <form>
+                            <div class="d-flex flex-column">
+                                <label>Street Name</label>
+                                <input placeholder="300 Post Street"/>
+                                <hr/>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label>City</label>
+                                <input placeholder="San Francisco"/>
+                                <hr/>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label>State</label>
+                                <input placeholder="California"/>
+                                <hr/>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label>ZIP Code</label>
+                                <input placeholder="12345"/>
+                                <hr/>
+                            </div>
+                            <button class="promo_btn">Confirm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="PromoCodeCard">
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="promo_card p-3">
+                        <div class="d-flex flex-row justify-content-between w-100">
+                            <div class="card_title">Enter promo code</div>
+                            <img width="24" height="24" src="../../static/pics/Close.png" data-dismiss="modal">
+                        </div>
+                        <form>
+                            <input class="promo_input" placeholder="HXFWO"/>
+                            <button class="promo_btn">Confirm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 {% block bottom_of_body %}
 {% endblock %}
 </html>
